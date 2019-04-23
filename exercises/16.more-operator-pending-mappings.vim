@@ -27,8 +27,8 @@ onoremap ah :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rg_vk0"<cr>
 " Remake two above mappings so it work with = and - underline too
 aug markdown_utils
   au!
-  au FileType markdown onoremap <buffer> ih :<c-u>execute "normal! ?^==\\|--\\+$\r:nohlsearch\rkvg_"<cr>
-  au FileType markdown onoremap <buffer> ah :<c-u>execute "normal! ?^==\\|--\\+$\r:nohlsearch\rg_vk0"<cr>
+  au FileType markdown onoremap <buffer> ih :<c-u>execute "normal! ?^==\\\|--\\+$\r:nohlsearch\rkvg_"<cr>
+  au FileType markdown onoremap <buffer> ah :<c-u>execute "normal! ?^==\\\|--\\+$\r:nohlsearch\rg_vk0"<cr>
 aug END
 
 " Inside next email address operator-pending mapping
