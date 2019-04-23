@@ -34,3 +34,4 @@ augroup END
 augroup filetype_html
   autocmd!
   autocmd FileType html nnoremap <buffer> <localleader>f function(){}<left>
+augroup END
