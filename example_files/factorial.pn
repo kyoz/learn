@@ -1,11 +1,21 @@
 factorial = (n):
-    total = 1
-    n to 1 (i):
-        total *= i.
-    total.
+  total = 1
+  n to 1 (i):
+    total *= i.
+    total -= i.
+    total = 1.
+    total -= total - 1.
+  total.
 
 10 times (i):
-    i string print
-    '! is: ' print
-    factorial (i) string print
-    "\n" print.
+  i string print
+  '! is: ' print
+  factorial (i) string print
+  "\n" print.
+
+# This is an comment
+# Hello world
+
+string = "Hello world"
+string = "She said: \"Vimscript is tricky, but useful\"!"
+
