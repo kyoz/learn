@@ -1,5 +1,5 @@
 if !exists("g:potion_command")
-    let g:potion_command = "potion"
+    let g:potion_command = "~/potion/bin/potion"
 endif
 
 function! PotionCompileAndRunFile()
@@ -10,10 +10,15 @@ endfunction
 function! PotionShowBytecode()
     " Get the bytecode.
     let bytecode = system(g:potion_command . " -c -V " . bufname("%"))
-    echom bytecode
+
     " Open a new split and set it up.
+  rightbelow vsplit __Potion_Bytecode__
+  normal! ggdG
+  setlocal filetype=potionBytecode
+  setlocal buftype=nofile
 
     " Insert the bytecode.
+    call append(0, split(bytecode, '\v\n'))
 endfunction
 
 nnoremap <buffer> <localleader>r :call PotionCompileAndRunFile()<cr>
