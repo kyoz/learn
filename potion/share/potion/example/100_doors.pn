@@ -1,0 +1,9 @@
+# See http://rosettacode.org/wiki/100_doors#Potion
+
+square=1, i=3
+1 to 100(door):
+  if (door == square):
+    ("door", door, "is open") say
+    square += i
+    i += 2.
+.
