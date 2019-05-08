@@ -36,7 +36,7 @@ function! PotionShowBytecode()
     endif
 
     normal! ggdG
-    setlocal filetype=potionBytecode
+    setlocal filetype=potionbytecode
     setlocal buftype=nofile
 
     " Insert the bytecode.
