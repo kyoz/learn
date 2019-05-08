@@ -1,7 +1,7 @@
 if v:version < 600
-  syntax clear
+    syntax clear
 elseif exists("b:current_syntax")
-  finish
+    finish
 endif
 
 " Keywords

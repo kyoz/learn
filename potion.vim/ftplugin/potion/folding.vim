@@ -2,37 +2,37 @@ setlocal foldmethod=expr
 setlocal foldexpr=GetPotionFold(v:lnum)
 
 function! IndentLevel(lnum)
-  return indent(a:lnum) / &shiftwidth
+    return indent(a:lnum) / &shiftwidth
 endfunction
 
 function! NextNonBlankLine(lnum)
-  let numlines = line('$')
-  let current = a:lnum + 1
+    let numlines = line('$')
+    let current = a:lnum + 1
 
-  while current <= numlines
-    if getline(current) =~? '\v\S'
-      return current
-    endif
+    while current <= numlines
+        if getline(current) =~? '\v\S'
+            return current
+        endif
 
-    let current += 1
-  endwhile
+        let current += 1
+    endwhile
 
-  return -2
+    return -2
 endfunction
 
 function! GetPotionFold(lnum)
-  if getline(a:lnum) =~? '\v^\s*$'
-    return '-1'
-  endif
+    if getline(a:lnum) =~? '\v^\s*$'
+        return '-1'
+    endif
 
-  let current_indent = IndentLevel(a:lnum)
-  let next_indent = IndentLevel(NextNonBlankLine(a:lnum))
+    let current_indent = IndentLevel(a:lnum)
+    let next_indent = IndentLevel(NextNonBlankLine(a:lnum))
 
-  if next_indent == current_indent
-    return current_indent
-  elseif next_indent < current_indent
-    return current_indent
-  elseif next_indent > current_indent
-    return '>' . next_indent
-  endif
+    if next_indent == current_indent
+        return current_indent
+    elseif next_indent < current_indent
+        return current_indent
+    elseif next_indent > current_indent
+        return '>' . next_indent
+    endif
 endfunction
