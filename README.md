@@ -38,7 +38,12 @@
 
 ## Reading List
 
+### Coding Skill
+
 - [ ] [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) - Robert Cecil Martin
+
+### Javascript
+
 - [ ] [Rxjs in Action](https://www.manning.com/books/rxjs-in-action) - Paul P. Daniels and Luis Atencio
 - [ ] [Eloquent JavaScript](https://eloquentjavascript.net/) - Marijn Haverbeke
 - [ ] [You dont know JS - Up & Going](https://github.com/getify/You-Dont-Know-JS) - Kyle Simpson
