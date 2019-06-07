@@ -1,10 +1,9 @@
-# Just a place to learn new things :star:
+# Just a place to learn & discover new things :star:
 > Trong con đường học vấn, hễ không tiến là lùi - Marius Roustan
 
 ## Languages
 
 - [x] [html]()
-- [ ] jade
 - [x] [css]()
 - [ ] scss
 - [ ] sass
@@ -41,10 +40,27 @@
 - [ ] react native
 - [ ] flutter
 
-## Libraries
+## Templating Engines
+
+- [ ] pug
+
+## Reactive Programming
 
 - [ ] rxjs
+
+## Data Structure
+
 - [ ] immutable
+
+## Data Visualization
+
+- [ ] d3
+
+## Useful Libraries
+
+- [ ] momentjs
+- [ ] lodash
+- [ ] underscore
 
 ## Architecture
 
@@ -64,22 +80,45 @@
 ### Task Runners
 
 - [ ] gulp
+- [ ] grunt
 
 ### Bundling
 
-- [ ] grunt
+- [ ] brunch
 - [ ] webpack
 - [ ] parcel
 - [ ] rollup
 
 ### Testing
 
-- [ ] Mocha
-- [ ] Chai
-- [ ] Karma
-- [ ] Ava
-- [ ] Jasmine
-- [ ] Protractor
+#### Frameworks
+
+- [ ] mocha
+- [ ] ava
+- [ ] jasmine
+- [ ] protractor
+- [ ] jest
+
+#### Assertions
+
+- [ ] chai
+- [ ] expect.js
+- [ ] sinon.js
+
+#### Runners
+
+- [ ] karma
+
+#### Coverages
+
+- [ ] istanbul
+
+### QA
+
+- [ ] prettier
+- [ ] eslint
+- [ ] tslint
+- [ ] [standard](https://github.com/standard/standard)
 
 ## LICENSE
 
