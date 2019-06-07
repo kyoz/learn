@@ -24,6 +24,7 @@
         * [Runners](#runners)
         * [Coverages](#coverages)
         * [QA](#qa)
+    * [Deploying](#deploying)
 
 ## Languages
 
@@ -146,12 +147,16 @@
 
 - [ ] istanbul
 
-### QA
+#### QA
 
 - [ ] prettier
 - [ ] eslint
 - [ ] tslint
 - [ ] [standard](https://github.com/standard/standard)
+
+### Deploying
+
+- [ ] Docker
 
 ## LICENSE
 
