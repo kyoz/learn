@@ -1,4 +1,4 @@
-# Just a place to learn & discover new things :star:
+# Just a place to learn & discover new things :cyclone:
 > Trong con đường học vấn, hễ không tiến là lùi - Marius Roustan
 
 ## Languages
