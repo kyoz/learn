@@ -69,7 +69,7 @@
 
 ### Desktop
 
-- [x] [electron]()
+- [ ] [electron]()
 
 ### Mobile
 
