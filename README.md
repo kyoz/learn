@@ -1,8 +1,6 @@
 # Just a place to learn new things
 > Trong con đường học vấn, hễ không tiến là lùi - Marius Roustan
 
-# To Learn
-
 ## Languages
 
 - [x] html
@@ -39,6 +37,7 @@
 ## Mobile App Frameworks
 
 - [ ] ionic
+- [ ] react native
 - [ ] flutter
 
 ## Libraries
