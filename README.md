@@ -6,6 +6,7 @@
   <a href="https://mangarock.com/manga/mrs-serie-100131657">Peerless Martial God - Yunduowudongma</a>
 </p>
 
+* [Reading List](#reading-list)
 * [Languages](#languages)
 * [Frameworks](#frameworks)
     * [Web](#web)
@@ -34,6 +35,18 @@
     * [Books](#books)
     * [Papers](#papers)
     * [Courses](#course)
+
+## Reading List
+
+- [ ] [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) - Robert Cecil Martin
+- [ ] [Rxjs in Action](https://www.manning.com/books/rxjs-in-action) - Paul P. Daniels and Luis Atencio
+- [ ] [Eloquent JavaScript](https://eloquentjavascript.net/) - Marijn Haverbeke
+- [ ] [You dont know JS - Up & Going](https://github.com/getify/You-Dont-Know-JS) - Kyle Simpson
+- [ ] [You dont know JS - Scope & Closures](https://github.com/getify/You-Dont-Know-JS) - Kyle Simpson
+- [ ] [You dont know JS - this & Object Prototypes](https://github.com/getify/You-Dont-Know-JS) - Kyle Simpson
+- [ ] [You dont know JS - Types & Grammar](https://github.com/getify/You-Dont-Know-JS) - Kyle Simpson
+- [ ] [You dont know JS - Async & Performance](https://github.com/getify/You-Dont-Know-JS) - Kyle Simpson
+- [ ] [You dont know JS - ES6 & Beyond](https://github.com/getify/You-Dont-Know-JS) - Kyle Simpson
 
 ## Languages
 
