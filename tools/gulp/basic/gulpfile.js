@@ -14,7 +14,7 @@ function watch() {
     server: {
       baseDir: 'app'
     },
-  });
+  }, compileStyles);
 
   gulp.watch('app/scss/**/*.+(scss|sass)', compileStyles);
   gulp.watch('app/*.html', browserSync.reload);
