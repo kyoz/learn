@@ -1,4 +1,4 @@
-# Just a place to learn & discover new things :cyclone:
+# :cyclone: Just a place to learn & discover new things
 > Trong con đường học vấn, hễ không tiến là lùi - Marius Roustan
 
 * [Languages](#languages)
@@ -27,131 +27,131 @@
 
 ## Languages
 
-- [x] [html]()
-- [x] [css]()
-- [ ] scss
-- [ ] sass
-- [ ] less
-- [ ] javascript
-- [ ] typescript
-- [x] [viml](./viml)
-- [ ] python
-- [ ] golang
-- [ ] c
-- [ ] c++
-- [ ] java
-- [ ] rust
+* [x] [html]()
+* [x] [css]()
+* [ ] scss
+* [ ] sass
+* [ ] less
+* [ ] javascript
+* [ ] typescript
+* [x] [viml](./viml)
+* [ ] python
+* [ ] golang
+* [ ] c
+* [ ] c++
+* [ ] java
+* [ ] rust
 
 ## Frameworks
 
 ### Web
 
-- [ ] [angular](./angular)
-    - [ ] ngrx
-    - [ ] universal
-- [ ] react
-    - [ ] next.js
-    - [ ] after.js
-- [ ] vue
-    - [ ] vuex
-    - [ ] nuxt.js
+* [ ] [angular](./angular)
+    * [ ] ngrx
+    * [ ] universal
+* [ ] react
+    * [ ] next.js
+    * [ ] after.js
+* [ ] vue
+    * [ ] vuex
+    * [ ] nuxt.js
 
 ### Desktop
 
-- [x] [electron]()
+* [x] [electron]()
 
 ### Mobile
 
-- [ ] ionic
-- [ ] react native
-- [ ] flutter
+* [ ] ionic
+* [ ] react native
+* [ ] flutter
 
 ## Libraries
 
 ### Reactive Programming
 
-- [ ] rxjs
+* [ ] rxjs
 
 ### Data Structure
 
-- [ ] immutable
+* [ ] immutable
 
 ### Data Visualization
 
-- [ ] d3
+* [ ] d3
 
 ### Useful Libraries
 
-- [ ] momentjs
-- [ ] lodash
-- [ ] underscore
+* [ ] momentjs
+* [ ] lodash
+* [ ] underscore
 
 
 ## Templating Engines
 
-- [ ] pug
-- [ ] mustache
-- [ ] handlebars
-- [ ] dot
-- [ ] ejs
+* [ ] pug
+* [ ] mustache
+* [ ] handlebars
+* [ ] dot
+* [ ] ejs
 
 ## Architecture
 
 ### CSS
 
-- [ ] BEM
-- [ ] OOCSS
-- [ ] SMACSS
+* [ ] bem
+* [ ] oocss
+* [ ] smacss
 
 ## Tools
 
 ### Package Managers
 
-- [x] [npm]()
-- [x] [yarn]()
+* [x] [npm]()
+* [x] [yarn]()
 
 ### Task Runners
 
-- [ ] gulp
-- [ ] grunt
+* [ ] gulp
+* [ ] grunt
 
 ### Bundling
 
-- [ ] brunch
-- [ ] webpack
-- [ ] parcel
-- [ ] rollup
+* [ ] brunch
+* [ ] webpack
+* [ ] parcel
+* [ ] rollup
 
 ### Testing
 
 #### Frameworks
 
-- [ ] mocha
-- [ ] ava
-- [ ] jasmine
-- [ ] protractor
-- [ ] jest
+* [ ] mocha
+* [ ] ava
+* [ ] jasmine
+* [ ] protractor
+* [ ] jest
 
 #### Assertions
 
-- [ ] chai
-- [ ] expect.js
-- [ ] sinon.js
+* [ ] chai
+* [ ] expect.js
+* [ ] sinon.js
 
 #### Runners
 
-- [ ] karma
+* [ ] karma
 
 #### Coverages
 
-- [ ] istanbul
+* [ ] istanbul
 
 ### QA
 
-- [ ] prettier
-- [ ] eslint
-- [ ] tslint
-- [ ] [standard](https://github.com/standard/standard)
+* [ ] prettier
+* [ ] eslint
+* [ ] tslint
+* [ ] [standard](https://github.com/standard/standard)
 
 ## LICENSE
 
