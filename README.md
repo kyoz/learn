@@ -1,6 +1,11 @@
 # :cyclone: Just a place to learn & discover new things
 > Trong con đường học vấn, hễ không tiến là lùi - Marius Roustan
 
+<p align="center">
+  <img src="./assets/images/cultivating.png" width="300px"><br>
+  <a href="https://mangarock.com/manga/mrs-serie-100131657">Peerless Martial God - Yunduowudongma</a>
+</p>
+
 * [Languages](#languages)
 * [Frameworks](#frameworks)
     * [Web](#web)
@@ -25,6 +30,10 @@
         * [Coverages](#coverages)
         * [QA](#qa)
     * [Deploying](#deploying)
+* [Documents](#documents)
+    * [Books](#books)
+    * [Papers](#papers)
+    * [Courses](#course)
 
 ## Languages
 
@@ -157,6 +166,27 @@
 ### Deploying
 
 - [ ] Docker
+
+## Documents
+
+### Books
+
+- [Library Genesis](http://gen.lib.rus.ec)
+- [Wow Ebook](http://www.wowebook.co)
+- [Electronic Library](http://b-ok.xyz)
+- [SMTEBooks](https://smtebooks.com)
+- [Ebook3000](http://www.ebook3000.com)
+- [FreeComputerBooks](http://freecomputerbooks.com)
+- [AlliteBooks](http://www.allitebooks.in)
+- [The PDF Books](www.thepdfbooks.com)
+
+### Papers
+
+- [Sci-Hub](https://sci-hub.tw)
+
+### Courses
+
+- [Free Tutorials](https://www.freetutorials.us)
 
 ## LICENSE
 
