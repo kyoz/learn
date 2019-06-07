@@ -6,7 +6,7 @@
   <a href="https://mangarock.com/manga/mrs-serie-100131657">Peerless Martial God - Yunduowudongma</a>
 </p>
 
-* [Reading List](./reading-list.md)
+* [Reading List](./READING-LIST.md)
 * [Languages](#languages)
 * [Frameworks](#frameworks)
     * [Web](#web)
@@ -45,7 +45,7 @@
 - [ ] less
 - [ ] javascript
 - [ ] typescript
-- [x] [viml](./viml)
+- [x] [viml](./languages/viml)
 - [ ] python
 - [ ] golang
 - [ ] c
@@ -57,7 +57,7 @@
 
 ### Web
 
-- [ ] [angular](./angular)
+- [ ] [angular](./frameworks/angular)
     - [ ] ngrx
     - [ ] universal
 - [ ] react
@@ -123,7 +123,7 @@
 
 ### Task Runners
 
-- [ ] gulp
+- [ ] [gulp](./tools/gulp)
 - [ ] grunt
 
 ### Bundling
