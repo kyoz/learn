@@ -159,7 +159,7 @@
 
 #### QA
 
-- [ ] browserSync
+- [x] [browserSync](https://www.browsersync.io/docs)
 - [ ] prettier
 - [ ] eslint
 - [ ] tslint
