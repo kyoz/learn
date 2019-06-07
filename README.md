@@ -178,7 +178,7 @@
 - [Ebook3000](http://www.ebook3000.com)
 - [FreeComputerBooks](http://freecomputerbooks.com)
 - [AlliteBooks](http://www.allitebooks.in)
-- [The PDF Books](www.thepdfbooks.com)
+- [The PDF Books](http://www.thepdfbooks.com)
 
 ### Papers
 
@@ -190,4 +190,4 @@
 
 ## LICENSE
 
-MIT - Copyright (c) 2019 Kyoz <banminkyoz@gmail.com>
+MIT - Copyright (c) 2019 [Kyoz](banminkyoz@gmail.com)
