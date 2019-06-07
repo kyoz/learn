@@ -1,6 +1,30 @@
 # Just a place to learn & discover new things :cyclone:
 > Trong con đường học vấn, hễ không tiến là lùi - Marius Roustan
 
+* [Languages](#languages)
+* [Frameworks](#frameworks)
+    * [Web](#web)
+    * [Desktop](#desktop)
+    * [Mobile](#mobile)
+* [Libraries](#libraries)
+    * [Reactive Programming](#reactive-programming)
+    * [Data Structure](#data-structure)
+    * [Data Visualization](#data-visualization)
+    * [Useful Libraries](#useful-libraries)
+* [Templating Engines](#templating-engines)
+* [Architecture](#architecture)
+    * [CSS](#css)
+* [Tools](#tools)
+    * [Package Managers](#package-managers)
+    * [Task Runners](#task-runners)
+    * [Bundling](#task-runners)
+    * [Testing](#testing)
+        * [Frameworks](#frameworks)
+        * [Assertions](#assertions)
+        * [Runners](#runners)
+        * [Coverages](#coverages)
+        * [QA](#qa)
+
 ## Languages
 
 - [x] [html]()
@@ -18,7 +42,9 @@
 - [ ] java
 - [ ] rust
 
-## Web Frameworks
+## Frameworks
+
+### Web
 
 - [ ] [angular](./angular)
     - [ ] ngrx
@@ -30,37 +56,44 @@
     - [ ] vuex
     - [ ] nuxt.js
 
-## Desktop App Frameworks
+### Desktop
 
 - [x] [electron]()
 
-## Mobile App Frameworks
+### Mobile
 
 - [ ] ionic
 - [ ] react native
 - [ ] flutter
 
-## Templating Engines
+## Libraries
 
-- [ ] pug
-
-## Reactive Programming
+### Reactive Programming
 
 - [ ] rxjs
 
-## Data Structure
+### Data Structure
 
 - [ ] immutable
 
-## Data Visualization
+### Data Visualization
 
 - [ ] d3
 
-## Useful Libraries
+### Useful Libraries
 
 - [ ] momentjs
 - [ ] lodash
 - [ ] underscore
+
+
+## Templating Engines
+
+- [ ] pug
+- [ ] mustache
+- [ ] handlebars
+- [ ] dot
+- [ ] ejs
 
 ## Architecture
 
