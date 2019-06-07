@@ -1,16 +1,17 @@
-# Just a place to learn new things
+# Just a place to learn new things :star:
 > Trong con đường học vấn, hễ không tiến là lùi - Marius Roustan
 
 ## Languages
 
-- [x] html
-- [x] css
+- [x] [html]()
+- [ ] jade
+- [x] [css]()
 - [ ] scss
 - [ ] sass
 - [ ] less
 - [ ] javascript
 - [ ] typescript
-- [x] viml
+- [x] [viml](./viml)
 - [ ] python
 - [ ] golang
 - [ ] c
@@ -20,7 +21,7 @@
 
 ## Web Frameworks
 
-- [ ] angular
+- [ ] [angular](./angular)
     - [ ] ngrx
     - [ ] universal
 - [ ] react
@@ -32,7 +33,7 @@
 
 ## Desktop App Frameworks
 
-- [x] electron
+- [x] [electron]()
 
 ## Mobile App Frameworks
 
@@ -57,8 +58,8 @@
 
 ### Package Managers
 
-- [x] npm
-- [x] yarn
+- [x] [npm]()
+- [x] [yarn]()
 
 ### Task Runners
 
@@ -79,3 +80,7 @@
 - [ ] Ava
 - [ ] Jasmine
 - [ ] Protractor
+
+## LICENSE
+
+MIT - Copyright (c) 2019 Kyoz <banminkyoz@gmail.com>
