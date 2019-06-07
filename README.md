@@ -159,6 +159,7 @@
 
 #### QA
 
+- [ ] browserSync
 - [ ] prettier
 - [ ] eslint
 - [ ] tslint
