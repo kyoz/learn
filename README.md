@@ -123,7 +123,7 @@
 
 ### Task Runners
 
-- [ ] [gulp](./tools/gulp)
+- [x] [gulp](./tools/gulp)
 - [ ] grunt
 
 ### Bundling
