@@ -1,0 +1,16 @@
+a {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 4px;
+  margin: 4px;
+}
+
+body {
+  color: blue;
+  font-size: 20px;
+}
+
+/*# sourceMappingURL=main.css.map */
