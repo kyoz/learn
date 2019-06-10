@@ -128,7 +128,7 @@
 
 ### Bundling
 
-- [ ] brunch
+- [x] brunch
 - [ ] webpack
 - [ ] parcel
 - [ ] rollup
