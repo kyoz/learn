@@ -131,7 +131,7 @@
 
 - [x] [webpack](./tools/webpack)
 - [x] [brunch](./tools/brunch)
-- [ ] parcel
+- [x] [parcel](./tools/parcel)
 - [ ] rollup
 
 ### Testing
