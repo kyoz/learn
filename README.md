@@ -82,6 +82,7 @@
 ### Reactive Programming
 
 - [ ] rxjs
+- [ ] [rxdb](https://github.com/pubkey/rxdb)
 
 ### Data Structure
 
