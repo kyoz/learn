@@ -129,8 +129,8 @@
 
 ### Bundling
 
-- [x] brunch
-- [x] webpack
+- [x] [webpack](./tools/webpack)
+- [x] [brunch](./tools/brunch)
 - [ ] parcel
 - [ ] rollup
 
