@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'MyFont';
+  src: url('./Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.hello {
+  color: red;
+  background: url('./icon.png');
+  font-family: 'MyFont';
+}
