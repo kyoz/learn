@@ -1,5 +1,331 @@
 # Angular
 Just a place to learn Angular
 
-# References
+## Contents
+
+- [Architecture](#architecture)
+    - [Modules](#modules)
+    - [Components](#components)
+    - [Services & DI](#services-&-di)
+- [Components & Templates](#components-&-Templates)
+    - [Interpolation and Template Expressions](#interpolation-and-template-expressions)
+    - [Binding Syntax](#binding-syntax)
+    - [Property Binding](#property-binding)
+    - [Attribute, class, and styles bindings](#attribute,-class,-and-styles-bindings)
+    - [Event bindings](#event-bindings)
+    - [Two-way bindings](#two-way-bindings)
+    - [Build-in directives](#build-in-directives)
+        - [Attribute directives](#attribute-directives)
+        - [Structure directives](#structure-directives)
+    - [Template references variables](#template-references-variables)
+    - [Input and Output properties](#input-and-output-properties)
+    - [Template expression operators](#template-expression-operators)
+    - [Built-in template functions](#build-in-template-functions)
+
+## Architecture
+
+- [Modules](https://next.angular.io/guide/architecture-modules)
+- [Components](https://next.angular.io/guide/architecture-components)
+- [Services & DI](https://next.angular.io/guide/architecture-services)
+
+## Components & Templates
+
+### Interpolation and Template Expressions
+
+- Interpolation: {{...}}
+- Template Expressions: {{ 1 + 1 }}
+
+### Binding Syntax
+
+| Data direction                     | Syntax                     | Type          |
+|:-----------------------------------|----------------------------|---------------|
+| One-way (from data source to view) | {{expression}}             | Interpolation |
+|                                    | [target]="expression"      | Property      |
+|                                    | bind-target="expression"   | Attribute     |
+|                                    |                            | Class         |
+|                                    |                            | Style         |
+| One-way (from view to data source) | (target)="statement"       | Event         |
+|                                    | on-target="statement"      |               |
+| Two-way                            | [(target)]="expression"    | Two-way       |
+|                                    | bindon-target="expression" |               |
+
+### Property Binding
+
+- One way property bindings:
+
+```html
+<!-- All of these is property binding -->
+<img [src]="heroImageUrl">
+<img bind-src="heroImageUrl">
+<button [disabled]="isUnchanged">Cancel is disabled</button>
+<app-hero-detail [hero]="currentHero"></app-hero-detail>
+```
+
+- Property binding or interpolation?
+
+```html
+<!-- We can actually binding with interpolation {{...}} or property binding syntax -->
+<p><img src="{{heroImageUrl}}"> is the <i>interpolated</i> image.</p>
+<p><img [src]="heroImageUrl"> is the <i>property bound</i> image.</p>
+
+<p><span>"{{title}}" is the <i>interpolated</i> title.</span></p>
+<p>"<span [innerHTML]="title"></span>" is the <i>property bound</i> title.</p>
+```
+
+### Attribute, class, and styles bindings
+
+- Attribute binding:
+
+```html
+<table border=1>
+  <tr><td [attr.colspan]="1 + 1">One-Two</td></tr>
+  <tr><td>Five</td><td>Six</td></tr>
+</table>
+```
+
+- Class binding:
+
+```html
+<div class="bad curly special"
+     [class]="badCurly">Bad curly</div>
+<div [class.special]="isSpecial">The class binding is special</div>
+<div class="special"
+     [class.special]="!isSpecial">This one is not so special</div>
+```
+
+- Style binding:
+
+```html
+<button [style.color]="isSpecial ? 'red': 'green'">Red</button>
+<button [style.background-color]="canSave ? 'cyan': 'grey'" >Save</button>
+<button [style.font-size.em]="isSpecial ? 3 : 1" >Big</button>
+<button [style.font-size.%]="!isSpecial ? 150 : 50" >Small</button>
+```
+
+### Event bindings
+
+- Target event:
+
+```html
+<button (click)="onSave($event)">Save</button>
+<button on-click="onSave($event)">on-click Save</button>
+
+<button (myClick)="clickMessage=$event" clickable>click with myClick</button>
+```
+
+- $event and event handling statements:
+
+```html
+<!-- without NgModel -->
+<input [value]="currentItem.name"
+       (input)="currentItem.name=$event.target.value" >
+```
+
+- Custom events with EventEmitter:
+
+```html
+<img src="{{itemImageUrl}}" [style.display]="displayNone">
+<span [style.text-decoration]="lineThrough">{{ item.name }}
+</span>
+<button (click)="delete()">Delete</button>
+```
+
+```javascript
+@Output() deleteRequest = new EventEmitter<Item>();
+
+delete() {
+  this.deleteRequest.emit(this.item);
+  this.displayNone = this.displayNone ? '' : 'none';
+  this.lineThrough = this.lineThrough ? '' : 'line-through';
+}
+```
+
+### Two-way bindings
+
+Two way binding with banana in the box: ( [(...)] )
+
+```javascript
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+@Component({
+  selector: 'app-sizer',
+  template: `
+  <div>
+    <button (click)="dec()" title="smaller">-</button>
+    <button (click)="inc()" title="bigger">+</button>
+    <label [style.font-size.px]="size">FontSize: {{size}}px</label>
+  </div>`
+})
+export class SizerComponent {
+  @Input()  size: number | string;
+  @Output() sizeChange = new EventEmitter<number>();
+
+  dec() { this.resize(-1); }
+  inc() { this.resize(+1); }
+
+  resize(delta: number) {
+    this.size = Math.min(40, Math.max(8, +this.size + delta));
+    this.sizeChange.emit(this.size);
+  }
+}
+```
+
+```html
+<app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event"></app-sizer>
+```
+
+### Build-in directives
+
+#### Attribute directives
+
+- NgClass:
+
+```html
+<!-- toggle the "special" class on/off with a property -->
+<div [class.special]="isSpecial">The class binding is special</div>
+```
+
+- NgStyle:
+
+```html
+<div [style.font-size]="isSpecial ? 'x-large' : 'smaller'" >
+  This div is x-large or smaller.
+</div>
+```
+
+- NgModel: 
+
+```html
+<input [(ngModel)]="currentHero.name">
+```
+
+#### Structure directives
+
+- NgIf
+
+```html
+<app-hero-detail *ngIf="isActive"></app-hero-detail>
+```
+
+- NgFor
+
+```html
+<div *ngFor="let hero of heroes">{{hero.name}}</div>
+<!-- With index -->
+<div *ngFor="let hero of heroes; let i=index">{{i + 1}} - {{hero.name}}</div>
+```
+
+- NgFor with trackBy
+```html
+<div *ngFor="let hero of heroes; trackBy: trackByHeroes">
+  ({{hero.id}}) {{hero.name}}
+</div>
+```
+
+```javascript
+trackByHeroes(index: number, hero: Hero): number { return hero.id; }
+```
+
+- NgSwitch
+
+```html
+<div [ngSwitch]="currentHero.emotion">
+  <app-happy-hero    *ngSwitchCase="'happy'"    [hero]="currentHero"></app-happy-hero>
+  <app-sad-hero      *ngSwitchCase="'sad'"      [hero]="currentHero"></app-sad-hero>
+  <app-confused-hero *ngSwitchCase="'confused'" [hero]="currentHero"></app-confused-hero>
+  <app-unknown-hero  *ngSwitchDefault           [hero]="currentHero"></app-unknown-hero>
+</div>
+```
+
+### Template references variables
+
+- A template reference variable is often a reference to a DOM element within a template. It can also be a reference to an Angular component or directive or a web component.
+
+```html
+<input #phone placeholder="phone number">
+<button (click)="callPhone(phone.value)">Call</button>
+```
+
+- Template references with ref-prefix
+
+```html
+<input ref-fax placeholder="fax number">
+<button (click)="callFax(fax.value)">Fax</button>
+```
+
+### Input and Output properties
+
+- Normally
+
+```javascript
+@Input()  hero: Hero;
+@Output() deleteRequest = new EventEmitter<Hero>();
+
+// With alias
+@Output('myClick') clicks = new EventEmitter<string>(); //  @Output(alias) propertyName = ...
+```
+
+- Alternatively, we can identify members in the inputs and outputs arrays of the directive metadata, as in this example:
+
+```javascript
+@Component({
+  inputs: ['hero'],
+  outputs: ['deleteRequest'],
+})
+
+// Alias
+@Component({
+  outputs: ['clicks:myClick']  // propertyName:alias
+})
+```
+
+### Template expression operators
+
+- Pipe operator ( | )
+
+```html
+<div>Title through uppercase pipe: {{title | uppercase}}</div>
+
+<!-- Chain pipe -->
+<div>
+  Title through a pipe chain:
+  {{title | uppercase | lowercase}}
+</div>
+
+<!-- Pipe with parameters -->
+<div>Birthdate: {{currentHero?.birthdate | date:'longDate'}}</div>
+```
+
+- Safe navigation operator ( ?. )
+
+```html
+<!-- No stop rendering if current hero is null or undefined -->
+The current hero's name is {{currentHero?.name}}
+
+<!-- This s**t can chain though object properties -->
+{{ currentHero?.name?.english?.hello }}
+```
+
+- Non-null assertion operator ( ! )
+
+```html
+<!--No hero, no text -->
+<div *ngIf="hero">
+  The hero's name is {{hero!.name}}
+</div>
+```
+
+### Build-in template functions
+
+- The $any() type cast function
+
+```html
+<!-- It prevents TypeScript from reporting that bestByDate is not a member of the item object when it runs type checking on the template.-->
+<p>The item's undeclared best by date is: {{$any(item).bestByDate}}</p>
+
+<!-- Also work with this to allow access to undeclared members of the component -->
+<p>The item's undeclared best by date is: {{$any(this).bestByDate}}</p>
+```
+
+## References
 - [Angular homepage](https://angular.io)
