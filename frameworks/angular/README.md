@@ -7,7 +7,7 @@ Just a place to learn Angular
     - [Modules](#modules)
     - [Components](#components)
     - [Services & DI](#services-&-di)
-- [Components & Templates](#components-&-Templates)
+- [Templates Syntax](#templates-syntax)
     - [Interpolation and Template Expressions](#interpolation-and-template-expressions)
     - [Binding Syntax](#binding-syntax)
     - [Property Binding](#property-binding)
@@ -28,7 +28,7 @@ Just a place to learn Angular
 - [Components](https://next.angular.io/guide/architecture-components)
 - [Services & DI](https://next.angular.io/guide/architecture-services)
 
-## Components & Templates
+## Templates Syntax
 
 ### Interpolation and Template Expressions
 
