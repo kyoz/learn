@@ -66,6 +66,7 @@
 - [ ] vue
     - [ ] vuex
     - [ ] nuxt.js
+- [ ] [svelte](https://svelte.dev/)
 
 ### Desktop
 
