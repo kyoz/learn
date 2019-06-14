@@ -332,8 +332,8 @@ The current hero's name is {{currentHero?.name}}
 
 | Hook          | Purpose and Timing                                                                                                                                                                                                                       |
 |---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ngOnChanges() | Respond when Angular (re)sets data-bound input properties. The method receives a SimpleChanges object of current and previous property values.<br> Called before ngOnInit() and whenever one or more data-bound input properties change. |
-| ngOnInit()    | Initialize the directive/component after Angular first displays the data-bound properties and sets the directive/component's input properties.<br> Called once, after the first ngOnChanges().                                           |
+| ngOnChanges() | Respond when Angular (re)sets data-bound input properties. The method receives a SimpleChanges object of current and previous property values.<br><br> Called before ngOnInit() and whenever one or more data-bound input properties change. |
+| ngOnInit()    | Initialize the directive/component after Angular first displays the data-bound properties and sets the directive/component's input properties.<br><br> Called once, after the first ngOnChanges().                                           |
 
 ## References
 - [Angular homepage](https://angular.io)
