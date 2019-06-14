@@ -11,7 +11,7 @@ Just a place to learn Angular
     - [Interpolation and Template Expressions](#interpolation-and-template-expressions)
     - [Binding Syntax](#binding-syntax)
     - [Property Binding](#property-binding)
-    - [Attribute, class, and styles bindings](#attribute,-class,-and-styles-bindings)
+    - [Attribute, Class, and styles bindings](#attribute,-class,-and-styles-bindings)
     - [Event bindings](#event-bindings)
     - [Two-way bindings](#two-way-bindings)
     - [Build-in directives](#build-in-directives)
@@ -21,6 +21,7 @@ Just a place to learn Angular
     - [Input and Output properties](#input-and-output-properties)
     - [Template expression operators](#template-expression-operators)
     - [Built-in template functions](#build-in-template-functions)
+- [Lifecycle Hooks](#lifecycle-hooks)
 
 ## Architecture
 
@@ -326,6 +327,13 @@ The current hero's name is {{currentHero?.name}}
 <!-- Also work with this to allow access to undeclared members of the component -->
 <p>The item's undeclared best by date is: {{$any(this).bestByDate}}</p>
 ```
+
+## Lifecycle Hooks
+
+| Hook          | Purpose and Timing                                                                                                                                                                                                                       |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ngOnChanges() | Respond when Angular (re)sets data-bound input properties. The method receives a SimpleChanges object of current and previous property values.<br> Called before ngOnInit() and whenever one or more data-bound input properties change. |
+| ngOnInit()    | Initialize the directive/component after Angular first displays the data-bound properties and sets the directive/component's input properties.<br> Called once, after the first ngOnChanges().                                           |
 
 ## References
 - [Angular homepage](https://angular.io)
