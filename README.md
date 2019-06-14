@@ -74,6 +74,7 @@
 
 ### Mobile
 
+- [ ] cordova
 - [ ] ionic
 - [ ] react native
 - [ ] flutter
