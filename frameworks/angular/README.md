@@ -330,10 +330,35 @@ The current hero's name is {{currentHero?.name}}
 
 ## Lifecycle Hooks
 
-| Hook          | Purpose and Timing                                                                                                                                                                                                                       |
-|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ngOnChanges() | Respond when Angular (re)sets data-bound input properties. The method receives a SimpleChanges object of current and previous property values.<br><br> Called before ngOnInit() and whenever one or more data-bound input properties change. |
-| ngOnInit()    | Initialize the directive/component after Angular first displays the data-bound properties and sets the directive/component's input properties.<br><br> Called once, after the first ngOnChanges().                                           |
+- Lifecycle sequence:
+
+| Hook                    | Purpose and Timing                                                                                                                                                                                                                           |
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ngOnChanges()           | Respond when Angular (re)sets data-bound input properties. The method receives a SimpleChanges object of current and previous property values.<br><br> Called before ngOnInit() and whenever one or more data-bound input properties change. |
+| ngOnInit()              | Initialize the directive/component after Angular first displays the data-bound properties and sets the directive/component's input properties.<br><br> Called once, after the first ngOnChanges().                                           |
+| ngDoCheck()             | Detect and act upon changes that Angular can't or won't detect on its own.<br><br> Called during every change detection run, immediately after ngOnChanges() and ngOnInit().                                                                 |
+| ngAfterContentInit()    | Respond after Angular projects external content into the component's view / the view that a directive is in.<br><br> Called once after the first ngDoCheck().<br>                                                                            |
+| ngAfterContentChecked() | Respond after Angular checks the content projected into the directive/component.<br><br> Called after the ngAfterContentInit() and every subsequent ngDoCheck().                                                                             |
+| ngAfterViewInit()       | Respond after Angular initializes the component's views and child views / the view that a directive is in.<br><br> Called once after the first ngAfterContentChecked().                                                                      |
+| ngAfterViewChecked()    | Respond after Angular checks the component's views and child views / the view that a directive is in.<br><br> Called after the ngAfterViewInit() and every subsequent ngAfterContentChecked().                                               |
+| ngOnDestroy()           | Cleanup just before Angular destroys the directive/component. Unsubscribe Observables and detach event handlers to avoid memory leaks.<br><br> Called just before Angular destroys the directive/component.                                  |
+
+- Content projection
+
+```html
+<!--- Is a way to import HTML content from outside the component and insert that content into the component's template in designed spot -->
+
+<!-- AfterContentComponent (after-content) template -->
+<div>-- Projected content begin --</div>
+  <ng-content></ng-content>
+<div>-- Projected content end --</div>
+
+<!-- Use content projection -->
+<after-content>
+  <!-- AppChildComponent (app-child) will be insert in to AfterContentComponent and replace for ng-content -->
+  <app-child></app-child>
+</after-content>
+```
 
 ## References
 - [Angular homepage](https://angular.io)
