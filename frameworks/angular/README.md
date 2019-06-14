@@ -22,6 +22,8 @@ Just a place to learn Angular
     - [Template expression operators](#template-expression-operators)
     - [Built-in template functions](#build-in-template-functions)
 - [Lifecycle Hooks](#lifecycle-hooks)
+    - [Lifecycle sequence](#lifecycle-sequence)
+    - [Content projection](#content-projection)
 
 ## Architecture
 
@@ -330,7 +332,7 @@ The current hero's name is {{currentHero?.name}}
 
 ## Lifecycle Hooks
 
-- Lifecycle sequence:
+### Lifecycle sequence
 
 | Hook                    | Purpose and Timing                                                                                                                                                                                                                           |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -343,11 +345,11 @@ The current hero's name is {{currentHero?.name}}
 | ngAfterViewChecked()    | Respond after Angular checks the component's views and child views / the view that a directive is in.<br><br> Called after the ngAfterViewInit() and every subsequent ngAfterContentChecked().                                               |
 | ngOnDestroy()           | Cleanup just before Angular destroys the directive/component. Unsubscribe Observables and detach event handlers to avoid memory leaks.<br><br> Called just before Angular destroys the directive/component.                                  |
 
-- Content projection
+### Content projection
+
+- Is a way to import HTML content from outside the component and insert that content into the component's template in designed spot
 
 ```html
-<!--- Is a way to import HTML content from outside the component and insert that content into the component's template in designed spot -->
-
 <!-- AfterContentComponent (after-content) template -->
 <div>-- Projected content begin --</div>
   <ng-content></ng-content>
