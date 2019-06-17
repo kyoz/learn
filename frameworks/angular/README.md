@@ -526,7 +526,7 @@ export class CountdownViewChildParentComponent implements AfterViewInit {
 
 - Applying the ::ng-deep pseudo-class to any CSS rule completely disables view-encapsulation for that rule. Any style with ::ng-deep applied becomes a global style. In order to scope the specified style to the current component and all its descendants, be sure to include the :host selector before ::ng-deep. If the ::ng-deep combinator is used without the :host pseudo-class selector, the style can bleed into other components.
 
-- The following example targets all <h3> elements, from the host element down through this component to all of its child elements in the DOM.
+- The following example targets all h3 elements, from the host element down through this component to all of its child elements in the DOM.
 
 ```css
 :host /deep/ h3 {
