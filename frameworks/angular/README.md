@@ -24,6 +24,7 @@ Just a place to learn Angular
 - [Lifecycle Hooks](#lifecycle-hooks)
     - [Lifecycle sequence](#lifecycle-sequence)
     - [Content projection](#content-projection)
+- [Component Interaction](https://next.angular.io/guide/component-interaction)
 
 ## Architecture
 
