@@ -25,6 +25,8 @@ Just a place to learn Angular
     - [Lifecycle sequence](#lifecycle-sequence)
     - [Content projection](#content-projection)
 - [Component Interaction](https://next.angular.io/guide/component-interaction)
+    - [Intercept input property changes](intercept-input-property-changes)
+    - [Parent listen for child event](parent-listen-for-child-event)
 
 ## Architecture
 
@@ -362,6 +364,111 @@ The current hero's name is {{currentHero?.name}}
   <app-child></app-child>
 </after-content>
 ```
+
+## Component Interaction
+
+### Intercept input property changes
+
+#### Intercept input property changes with a setter
+
+```javascript
+@Component({
+  selector: 'app-name-child',
+  template: '<h3>"{{name}}"</h3>'
+})
+export class NameChildComponent {
+  private _name = '';
+ 
+  @Input()
+  set name(name: string) {
+    this._name = (name && name.trim()) || '<no name set>';
+  }
+ 
+  get name(): string { return this._name; }
+}
+```
+
+#### Intercept input property changes with ngOnChanges()
+
+```javascript
+export class VersionChildComponent implements OnChanges {
+  @Input() major: number;
+  @Input() minor: number;
+  changeLog: string[] = [];
+ 
+  ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+    let log: string[] = [];
+    for (let propName in changes) {
+      let changedProp = changes[propName];
+      let to = JSON.stringify(changedProp.currentValue);
+      if (changedProp.isFirstChange()) {
+        log.push(`Initial value of ${propName} set to ${to}`);
+      } else {
+        let from = JSON.stringify(changedProp.previousValue);
+        log.push(`${propName} changed from ${from} to ${to}`);
+      }
+    }
+    this.changeLog.push(log.join(', '));
+  }
+}
+```
+
+### Parent listen for child event
+
+#### With EventEmitter
+
+```javascript
+@Component({
+  selector: 'app-voter',
+  template: `
+    <h4>{{name}}</h4>
+    <button (click)="vote(true)"  [disabled]="didVote">Agree</button>
+    <button (click)="vote(false)" [disabled]="didVote">Disagree</button>
+  `
+})
+export class VoterComponent {
+  @Input()  name: string;
+  @Output() voted = new EventEmitter<boolean>();
+  didVote = false;
+ 
+  vote(agreed: boolean) {
+    this.voted.emit(agreed);
+    this.didVote = true;
+  }
+}
+```
+
+#### With child via local variable
+
+```javascript
+@Component({
+  selector: 'app-countdown-parent-lv',
+  template: `
+  <h3>Countdown to Liftoff (via local variable)</h3>
+  <button (click)="timer.start()">Start</button>
+  <button (click)="timer.stop()">Stop</button>
+  <div class="seconds">{{timer.seconds}}</div>
+  <app-countdown-timer #timer></app-countdown-timer>
+  `,
+  styleUrls: ['../assets/demo.css']
+})
+```
+
+#### With @ViewChild()
+
+```javascript
+export class CountdownViewChildParentComponent implements AfterViewInit {
+ 
+  @ViewChild(CountdownTimerComponent, {static: false} private timerComponent: CountdownTimerComponent;
+ 
+  start() { this.timerComponent.start(); }
+  stop() { this.timerComponent.stop(); }
+}
+```
+
+#### With a service
+
+[Example](https://next.angular.io/guide/component-interaction#parent-and-children-communicate-via-a-service)
 
 ## References
 - [Angular homepage](https://angular.io)
