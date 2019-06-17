@@ -482,8 +482,8 @@ export class CountdownViewChildParentComponent implements AfterViewInit {
 
 - Use the :host pseudo-class selector to target styles in the element that hosts the component (as opposed to targeting elements inside the component's template).
 
-**Parent Component**
-```html
+```javascript
+// Parent Component
 @Component({
   selector: 'app-parent',
   template: `
@@ -498,8 +498,8 @@ export class CountdownViewChildParentComponent implements AfterViewInit {
 })
 ```
 
-**Child component**
-```html
+```javascript
+// Child component
 @Component({
   selector: 'app-child',
   template: `
