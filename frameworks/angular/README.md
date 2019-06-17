@@ -27,6 +27,10 @@ Just a place to learn Angular
 - [Component Interaction](#component-interaction)
     - [Intercept input property changes](#intercept-input-property-changes)
     - [Parent listen for child event](#parent-listen-for-child-event)
+- [Component Styles](#component-styles)
+    - [Special Selector](#special-selector)
+    - [Loading Component Styles](#loading-component-styles)
+    - [View Encapsulation](#view-encapsulation)
 
 ## Architecture
 
@@ -469,6 +473,55 @@ export class CountdownViewChildParentComponent implements AfterViewInit {
 #### With a service
 
 [Example](https://next.angular.io/guide/component-interaction#parent-and-children-communicate-via-a-service)
+
+## Component Styles
+
+### Special Selector
+
+#### :host
+
+- Use the :host pseudo-class selector to target styles in the element that hosts the component (as opposed to targeting elements inside the component's template).
+
+**Parent Component**
+```html
+@Component({
+  selector: 'app-parent',
+  template: `
+    <div class="container">
+      This is parent component
+      <app-child class="child"></app-child>
+    </div>
+  `,
+  styles: [`
+    .container { color: red }
+  `]
+})
+```
+
+**Child component**
+```html
+@Component({
+  selector: 'app-child',
+  template: `
+    <div class="container">This is child component</div>
+  `,
+  styles: [`
+    .container { color: blue }
+
+    :host {
+      font-size: 30px;
+    }
+
+    // Or use :host(.class-exist-in-host)
+    // :host(.child) {
+    //   font-size: 30px;
+    // }
+  `]
+})
+```
+
+### Loading Component Styles
+### View Encapsulation
 
 ## References
 - [Angular homepage](https://angular.io)
