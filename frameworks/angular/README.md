@@ -31,6 +31,7 @@ Just a place to learn Angular
     - [Special Selector](#special-selector)
     - [Loading Component Styles](#loading-component-styles)
     - [View Encapsulation](#view-encapsulation)
+    - [Inspecting generated CSS](#inspecting-generated-css)
 
 ## Architecture
 
