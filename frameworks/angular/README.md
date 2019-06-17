@@ -548,6 +548,87 @@ export class CountdownViewChildParentComponent implements AfterViewInit {
 ```
 
 ### Loading Component Styles
+
+#### Styles in component metadata
+
+- You can add a styles array property to the @Component decorator.
+- Each string in the array defines some CSS for this component.
+
+```javascript
+@Component({
+  selector: 'app-root',
+  template: `
+    <h1>Tour of Heroes</h1>
+    <app-hero-main [hero]="hero"></app-hero-main>
+  `,
+  styles: ['h1 { font-weight: normal; }']
+})
+```
+
+**Note**: Style strings added to the @Component.styles array must be written in CSS because the CLI cannot apply a preprocessor to inline styles.
+
+#### Style files in component metadata
+
+```javascript
+@Component({
+  selector: 'app-root',
+  template: `
+    <h1>Tour of Heroes</h1>
+    <app-hero-main [hero]="hero"></app-hero-main>
+  `,
+  styleUrls: ['./app.component.css']
+})
+```
+
+```css
+// app.component.html file
+h1 {
+  color: red
+}
+```
+
+#### Template inline styles
+
+```javascript
+@Component({
+  selector: 'app-hero-controls',
+  template: `
+    <style>
+      button {
+        background-color: white;
+        border: 1px solid #777;
+      }
+    </style>
+    <h3>Controls</h3>
+    <button (click)="activate()">Activate</button>
+  `
+})
+```
+
+#### Template link tags
+
+```javascript
+@Component({
+  selector: 'app-hero-team',
+  template: `
+    <!-- We must use a relative URL so that the AOT compiler can find the stylesheet -->
+    <link rel="stylesheet" href="../assets/hero-team.component.css">
+    <h3>Team</h3>
+    <ul>
+      <li *ngFor="let member of hero.team">
+        {{member}}
+      </li>
+    </ul>`
+})
+```
+
+#### CSS @import
+
+```css
+/* The AOT compiler needs the `./` to show that this is local */
+@import './hero-details-box.css';
+```
+
 ### View Encapsulation
 
 ## References
