@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'component-styles';
+
+  constructor() {
+    document.body.classList.add('this-is-body');
+  }
 }

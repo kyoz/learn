@@ -10,6 +10,10 @@ import { Component } from '@angular/core';
   `,
   styles: [`
     .container { color: red }
+
+    :host-context(.this-is-body) * {
+      background: #bdbdbd;
+    }
   `]
 })
 export class ParentComponent {

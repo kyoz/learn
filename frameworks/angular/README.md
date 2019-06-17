@@ -520,6 +520,33 @@ export class CountdownViewChildParentComponent implements AfterViewInit {
 })
 ```
 
+#### (deprecated) /deep/, >>>, and ::ng-deep
+
+- Component styles normally apply only to the HTML in the component's own template.
+
+- Applying the ::ng-deep pseudo-class to any CSS rule completely disables view-encapsulation for that rule. Any style with ::ng-deep applied becomes a global style. In order to scope the specified style to the current component and all its descendants, be sure to include the :host selector before ::ng-deep. If the ::ng-deep combinator is used without the :host pseudo-class selector, the style can bleed into other components.
+
+- The following example targets all <h3> elements, from the host element down through this component to all of its child elements in the DOM.
+
+```css
+:host /deep/ h3 {
+  font-style: italic;
+}
+```
+
+### :host-content
+
+- Sometimes it's useful to apply styles based on some condition outside of a component's view. For example, a CSS theme class could be applied to the document <body> element, and you want to change how your component looks based on that.
+
+- Use the :host-context() pseudo-class selector, which works just like the function form of :host(). The :host-context() selector looks for a CSS class in any ancestor of the component host element, up to the document root. The :host-context() selector is useful when combined with another selector.
+
+```css
+// Find up to root what element with class 'this-is-body' and apply background: #bdbdbd to all it children elements
+:host-context(.this-is-body) * {
+  background: #bdbdbd;
+}
+```
+
 ### Loading Component Styles
 ### View Encapsulation
 
