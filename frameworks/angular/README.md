@@ -520,6 +520,19 @@ export class CountdownViewChildParentComponent implements AfterViewInit {
 })
 ```
 
+#### :host-content
+
+- Sometimes it's useful to apply styles based on some condition outside of a component's view. For example, a CSS theme class could be applied to the document <body> element, and you want to change how your component looks based on that.
+
+- Use the :host-context() pseudo-class selector, which works just like the function form of :host(). The :host-context() selector looks for a CSS class in any ancestor of the component host element, up to the document root. The :host-context() selector is useful when combined with another selector.
+
+```css
+// Find up to root what element with class 'this-is-body' and apply background: #bdbdbd to all it children elements
+:host-context(.this-is-body) * {
+  background: #bdbdbd;
+}
+```
+
 #### (deprecated) /deep/, >>>, and ::ng-deep
 
 - Component styles normally apply only to the HTML in the component's own template.
@@ -531,19 +544,6 @@ export class CountdownViewChildParentComponent implements AfterViewInit {
 ```css
 :host /deep/ h3 {
   font-style: italic;
-}
-```
-
-### :host-content
-
-- Sometimes it's useful to apply styles based on some condition outside of a component's view. For example, a CSS theme class could be applied to the document <body> element, and you want to change how your component looks based on that.
-
-- Use the :host-context() pseudo-class selector, which works just like the function form of :host(). The :host-context() selector looks for a CSS class in any ancestor of the component host element, up to the document root. The :host-context() selector is useful when combined with another selector.
-
-```css
-// Find up to root what element with class 'this-is-body' and apply background: #bdbdbd to all it children elements
-:host-context(.this-is-body) * {
-  background: #bdbdbd;
 }
 ```
 
