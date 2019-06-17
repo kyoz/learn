@@ -9,10 +9,12 @@ import { MissionControlComponent } from './mission-control.component';
 import { AstronautComponent } from './astronaut.component';
 import { VoteComponent } from './vote.component';
 import { VoteTakerComponent } from './vote-taker.component';
+import { InteractComponent } from './interact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    InteractComponent,
     TimerComponent,
     ChildTimerComponent,
     TimerViewChildComponent,
