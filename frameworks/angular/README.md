@@ -24,9 +24,9 @@ Just a place to learn Angular
 - [Lifecycle Hooks](#lifecycle-hooks)
     - [Lifecycle sequence](#lifecycle-sequence)
     - [Content projection](#content-projection)
-- [Component Interaction](https://next.angular.io/guide/component-interaction)
-    - [Intercept input property changes](intercept-input-property-changes)
-    - [Parent listen for child event](parent-listen-for-child-event)
+- [Component Interaction](#component-interaction)
+    - [Intercept input property changes](#intercept-input-property-changes)
+    - [Parent listen for child event](#parent-listen-for-child-event)
 
 ## Architecture
 
