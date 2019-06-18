@@ -36,7 +36,7 @@ Just a place to learn Angular
 - [Custom directives](#custom-directives)
     - [Custom attribute directives](#custom-attribute-directives)
     - [Custom structure directives](#custom-stucture-directives)
-- [Custom pipes](#custom-pipe)
+- [Custom pipes](#custom-pipes)
 
 ## Architecture
 
