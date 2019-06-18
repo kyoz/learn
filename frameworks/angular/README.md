@@ -33,6 +33,9 @@ Just a place to learn Angular
     - [Loading Component Styles](#loading-component-styles)
     - [View Encapsulation](#view-encapsulation)
     - [Inspecting generated CSS](#inspecting-generated-css)
+- [Custom Directives](#custom-directives)
+    - [Custom Attribute Directives](#custom-attribute-directives)
+    - [Custom Structure Directives](#custom-stucture-directives)
 
 ## Architecture
 
@@ -694,6 +697,45 @@ h3[_ngcontent-pmm-6] {
 ```
 
 - These styles are post-processed so that each selector is augmented with _nghost or _ngcontent attribute selectors. These extra selectors enable the scoping rules described in this page.
+
+## Custom Directives
+
+### Custom Attribute Directives
+
+```javascript
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+  @Input('color') highlightColor: string;
+
+  @HostListener('mouseenter') onMouseEnter() {
+    this.highlight(this.highlightColor || 'green');
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this.highlight(null);
+  }
+
+  constructor(private el: ElementRef) {
+  }
+
+  private highlight(color: string) {
+    this.el.nativeElement.style.backgroundColor = color;
+    this.el.nativeElement.style.color = color === null ? 'black' : 'white';
+  }
+}
+```
+
+```html
+<p appHighlight>Hover me bro</p>
+<p appHighlight color="red">Hover me bro</p>
+<p appHighlight color="blue">Hover me bro</p>
+```
+
+### Custom Structure Directives
 
 ## References
 - [Angular homepage](https://angular.io)
