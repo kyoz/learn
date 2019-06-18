@@ -15,6 +15,7 @@ Just a place to learn Angular
     - [Event bindings](#event-bindings)
     - [Two-way bindings](#two-way-bindings)
     - [Build-in directives](#build-in-directives)
+        - [Components](#components)
         - [Attribute directives](#attribute-directives)
         - [Structure directives](#structure-directives)
     - [Template references variables](#template-references-variables)
@@ -187,16 +188,22 @@ export class SizerComponent {
 
 ### Build-in directives
 
+#### Components
+
+- Angular's components is directive with template.
+
 #### Attribute directives
 
-- NgClass:
+- Change the appearance or behavior of an element, component, or another directive.
+
+##### NgClass:
 
 ```html
 <!-- toggle the "special" class on/off with a property -->
 <div [class.special]="isSpecial">The class binding is special</div>
 ```
 
-- NgStyle:
+##### NgStyle:
 
 ```html
 <div [style.font-size]="isSpecial ? 'x-large' : 'smaller'" >
@@ -204,7 +211,7 @@ export class SizerComponent {
 </div>
 ```
 
-- NgModel: 
+##### NgModel: 
 
 ```html
 <input [(ngModel)]="currentHero.name">
@@ -212,13 +219,15 @@ export class SizerComponent {
 
 #### Structure directives
 
-- NgIf
+- Change the DOM layout by adding and removing DOM elements
+
+##### NgIf
 
 ```html
 <app-hero-detail *ngIf="isActive"></app-hero-detail>
 ```
 
-- NgFor
+##### NgFor
 
 ```html
 <div *ngFor="let hero of heroes">{{hero.name}}</div>
@@ -226,7 +235,7 @@ export class SizerComponent {
 <div *ngFor="let hero of heroes; let i=index">{{i + 1}} - {{hero.name}}</div>
 ```
 
-- NgFor with trackBy
+##### NgFor with trackBy
 ```html
 <div *ngFor="let hero of heroes; trackBy: trackByHeroes">
   ({{hero.id}}) {{hero.name}}
@@ -237,7 +246,7 @@ export class SizerComponent {
 trackByHeroes(index: number, hero: Hero): number { return hero.id; }
 ```
 
-- NgSwitch
+##### NgSwitch
 
 ```html
 <div [ngSwitch]="currentHero.emotion">
