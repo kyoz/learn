@@ -7,11 +7,11 @@ Just a place to learn Angular
     - [Modules](#modules)
     - [Components](#components)
     - [Services & DI](#services-&-di)
-- [Templates Syntax](#templates-syntax)
-    - [Interpolation and Template Expressions](#interpolation-and-template-expressions)
-    - [Binding Syntax](#binding-syntax)
-    - [Property Binding](#property-binding)
-    - [Attribute, Class, and styles bindings](#attribute,-class,-and-styles-bindings)
+- [Templates syntax](#templates-syntax)
+    - [Interpolation and template expressions](#interpolation-and-template-expressions)
+    - [Binding syntax](#binding-syntax)
+    - [Property binding](#property-binding)
+    - [Attribute, class, and styles bindings](#attribute,-class,-and-styles-bindings)
     - [Event bindings](#event-bindings)
     - [Two-way bindings](#two-way-bindings)
     - [Build-in directives](#build-in-directives)
@@ -19,23 +19,23 @@ Just a place to learn Angular
         - [Attribute directives](#attribute-directives)
         - [Structure directives](#structure-directives)
     - [Template references variables](#template-references-variables)
-    - [Input and Output properties](#input-and-output-properties)
+    - [Input and output properties](#input-and-output-properties)
     - [Template expression operators](#template-expression-operators)
     - [Built-in template functions](#build-in-template-functions)
-- [Lifecycle Hooks](#lifecycle-hooks)
+- [Lifecycle hooks](#lifecycle-hooks)
     - [Lifecycle sequence](#lifecycle-sequence)
     - [Content projection](#content-projection)
-- [Component Interaction](#component-interaction)
+- [Component interaction](#component-interaction)
     - [Intercept input property changes](#intercept-input-property-changes)
     - [Parent listen for child event](#parent-listen-for-child-event)
-- [Component Styles](#component-styles)
-    - [Special Selector](#special-selector)
-    - [Loading Component Styles](#loading-component-styles)
-    - [View Encapsulation](#view-encapsulation)
+- [Component styles](#component-styles)
+    - [Special selector](#special-selector)
+    - [Loading component styles](#loading-component-styles)
+    - [View encapsulation](#view-encapsulation)
     - [Inspecting generated CSS](#inspecting-generated-css)
-- [Custom Directives](#custom-directives)
-    - [Custom Attribute Directives](#custom-attribute-directives)
-    - [Custom Structure Directives](#custom-stucture-directives)
+- [Custom directives](#custom-directives)
+    - [Custom attribute directives](#custom-attribute-directives)
+    - [Custom structure directives](#custom-stucture-directives)
 
 ## Architecture
 
@@ -43,14 +43,14 @@ Just a place to learn Angular
 - [Components](https://next.angular.io/guide/architecture-components)
 - [Services & DI](https://next.angular.io/guide/architecture-services)
 
-## Templates Syntax
+## Templates syntax
 
-### Interpolation and Template Expressions
+### Interpolation and template expressions
 
 - Interpolation: {{...}}
 - Template Expressions: {{ 1 + 1 }}
 
-### Binding Syntax
+### Binding syntax
 
 | Data direction                     | Syntax                     | Type          |
 |:-----------------------------------|----------------------------|---------------|
@@ -64,7 +64,7 @@ Just a place to learn Angular
 | Two-way                            | [(target)]="expression"    | Two-way       |
 |                                    | bindon-target="expression" |               |
 
-### Property Binding
+### Property binding
 
 - One way property bindings:
 
@@ -276,7 +276,7 @@ trackByHeroes(index: number, hero: Hero): number { return hero.id; }
 <button (click)="callFax(fax.value)">Fax</button>
 ```
 
-### Input and Output properties
+### Input and output properties
 
 - Normally
 
@@ -350,7 +350,7 @@ The current hero's name is {{currentHero?.name}}
 <p>The item's undeclared best by date is: {{$any(this).bestByDate}}</p>
 ```
 
-## Lifecycle Hooks
+## Lifecycle hooks
 
 ### Lifecycle sequence
 
@@ -382,7 +382,7 @@ The current hero's name is {{currentHero?.name}}
 </after-content>
 ```
 
-## Component Interaction
+## Component interaction
 
 ### Intercept input property changes
 
@@ -560,7 +560,7 @@ export class CountdownViewChildParentComponent implements AfterViewInit {
 }
 ```
 
-### Loading Component Styles
+### Loading component styles
 
 #### Styles in component metadata
 
@@ -642,7 +642,7 @@ h1 {
 @import './hero-details-box.css';
 ```
 
-### View Encapsulation
+### View encapsulation
 
 - As discussed earlier, component CSS styles are encapsulated into the component's view and don't affect the rest of the application.
 
@@ -698,9 +698,17 @@ h3[_ngcontent-pmm-6] {
 
 - These styles are post-processed so that each selector is augmented with _nghost or _ngcontent attribute selectors. These extra selectors enable the scoping rules described in this page.
 
-## Custom Directives
+## Custom directives
 
-### Custom Attribute Directives
+### Custom attribute directives
+
+- An example with highlight directive which will highlight when you hover on element with that directive.
+
+```html
+<p appHighlight>Hover me bro</p>
+<p appHighlight color="red">Hover me bro</p>
+<p appHighlight color="blue">Hover me bro</p>
+```
 
 ```javascript
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
@@ -729,13 +737,7 @@ export class HighlightDirective {
 }
 ```
 
-```html
-<p appHighlight>Hover me bro</p>
-<p appHighlight color="red">Hover me bro</p>
-<p appHighlight color="blue">Hover me bro</p>
-```
-
-### Custom Structure Directives
+### Custom structure directives
 
 ## References
 - [Angular homepage](https://angular.io)
