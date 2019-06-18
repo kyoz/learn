@@ -36,6 +36,7 @@ Just a place to learn Angular
 - [Custom directives](#custom-directives)
     - [Custom attribute directives](#custom-attribute-directives)
     - [Custom structure directives](#custom-stucture-directives)
+- [Custom pipes](#custom-pipe)
 
 ## Architecture
 
@@ -738,6 +739,71 @@ export class HighlightDirective {
 ```
 
 ### Custom structure directives
+
+- A simple example for custom structure directive with behavior opposite to *ngIf
+
+```javascript
+import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
+
+@Directive({
+  selector: '[appUnless]'
+})
+export class UnlessDirective {
+  private hasView = false;
+
+  constructor(
+    private templateRef: TemplateRef<any>,
+    private viewContainerRef: ViewContainerRef
+  ) { }
+
+  @Input() set appUnless(condition: boolean) {
+    if (!condition && !this.hasView) {
+      this.viewContainerRef.createEmbeddedView(this.templateRef);
+      this.hasView = true;
+    } else if (condition && this.hasView) {
+      this.viewContainerRef.clear();
+      this.hasView = false;
+    }
+  }
+}
+```
+
+## Custom pipes
+
+### Pure pipe
+
+```javascript
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'simplePipe'
+})
+export class SimplePipe implements PipeTransform {
+
+  transform(value: 'string', args?: any): any {
+    console.log('pure pipe run');
+    return value + (args || 'Hihi');
+  }
+}
+```
+
+### Impure pipe
+
+```javascript
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'simplePipe',
+  pure: false
+})
+export class SimplePipe implements PipeTransform {
+
+  transform(value: 'string', args?: any): any {
+    console.log('pure pipe run');
+    return value + (args || 'Hihi');
+  }
+}
+```
 
 ## References
 - [Angular homepage](https://angular.io)
