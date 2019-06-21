@@ -1,0 +1,43 @@
+<h2>Test form valid state</h2>
+<hr>
+
+<form #testFormModel="ngForm">
+  Test: <input type="text" name="testName" [(ngModel)]="testFormModel.testName" #testName>
+  <div>{{ testName.className | json }}</div>
+</form>
+
+<h2>Full Template-driven Form Example</h2>
+<hr>
+
+<form (ngSubmit)="onFormSubmit()" #heroForm="ngForm">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" class="form-control" required
+           [(ngModel)]="formModel.name" #name="ngModel">
+    <div class="alert alert-danger" [hidden]="name.valid || (name.valid && name.pristine)">
+      Name is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="power">Power</label>
+    <select id="power" name="power" class="form-control" required
+            [(ngModel)]="formModel.power" #power="ngModel">
+      <option *ngFor="let pow of powers" [value]="pow">{{ pow }}</option>
+    </select>
+    <div class="alert alert-danger" [hidden]="power.valid || (power.value && power.pristine)">
+      Power is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="alterEgo">Alter Ego</label>
+    <input type="text" id="alterEgo" name="alterEgo" class="form-control"
+           [(ngModel)]="formModel.alterEgo">
+  </div>
+
+  <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>&nbsp;
+  <button type="button" class="btn btn-normal" (click)="resetForm()">Reset Form</button>
+</form>
+
+<b>Note</b>: Defining a <b>name</b> attribute is a requirement when using [(ngModel)] in combination with a form.
