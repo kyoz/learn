@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { forbiddenNameValidator } from '../shared/forbidden-name.directive';
 
 @Component({
   selector: 'app-reactive',
@@ -9,7 +10,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class ReactiveComponent implements OnInit {
 
   form = this.formBuilder.group({
-    username: ['', [Validators.required, Validators.minLength(2)]],
+    username: ['', [
+      Validators.required,
+      Validators.minLength(2),
+      forbiddenNameValidator(/Kyoz/i)
+    ]],
     password: this.formBuilder.group({
       password: ['', [Validators.required]],
       confirm: ['', [Validators.required]]

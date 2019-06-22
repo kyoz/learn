@@ -3,11 +3,13 @@
 
 <form #form="ngForm" (ngSubmit)="onSubmit()">
   <div>
-    Username: <input type="text" id="username" name="username" required minlength="2"
-                     [(ngModel)]="form.username" #username="ngModel">
+    Username: <input type="text" id="username" name="username"
+                     [(ngModel)]="form.username" #username="ngModel"
+                     required minlength="2" appForbiddenName="Kyoz">
     <div class="errors" *ngIf="username.invalid && (username.dirty || username.touched)">
       <div *ngIf="username.errors.required">Name is required</div>
       <div *ngIf="username.errors.minlength">Name is too short</div>
+      <div *ngIf="username.errors.forbiddenName">Name cannot be Kyoz</div>
     </div>
   </div>
 

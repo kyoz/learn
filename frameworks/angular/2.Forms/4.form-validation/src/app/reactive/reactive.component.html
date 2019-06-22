@@ -1,13 +1,14 @@
 <h2>Reactive Form Validate</h2>
 <hr>
 
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div>
     Username: <input type="text" id="username" name="username"
                      formControlName="username">
     <div class="errors" *ngIf="username.invalid && (username.dirty || username.touched)">
       <div *ngIf="username.errors.required">Name is required</div>
       <div *ngIf="username.errors.minlength">Name is too short</div>
+      <div *ngIf="username.errors.forbiddenName">Name cannot be Kyoz</div>
     </div>
   </div>
 
@@ -30,5 +31,5 @@
   </div>
 
   <button type="submit">Submit</button> 
-  <button type="button">Reset</button>
+  <button type="button" (click)="form.reset()">Reset</button>
 </form>
