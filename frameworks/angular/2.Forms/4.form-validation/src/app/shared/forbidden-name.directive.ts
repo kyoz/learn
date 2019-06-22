@@ -1,6 +1,9 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, NG_VALIDATORS, ValidatorFn } from '@angular/forms';
 
+// If using with reactive form, only need this function
+// But if want to use with template driven form, must declare a directive as below
+
 export function forbiddenNameValidator(regExp: RegExp): ValidatorFn {
   return (control: AbstractControl): {[key: string]: any} | null => {
     const forbidden = regExp.test(control.value);
