@@ -1,0 +1,34 @@
+<h2>Reactive Form Validate</h2>
+<hr>
+
+<form [formGroup]="form">
+  <div>
+    Username: <input type="text" id="username" name="username"
+                     formControlName="username">
+    <div class="errors" *ngIf="username.invalid && (username.dirty || username.touched)">
+      <div *ngIf="username.errors.required">Name is required</div>
+      <div *ngIf="username.errors.minlength">Name is too short</div>
+    </div>
+  </div>
+
+  <div formGroupName="password">
+    <div>
+      Password: <input type="text" id="password" name="password"
+                       formControlName="password">
+      <div class="errors" *ngIf="password.invalid && (password.dirty || password.touched)">
+        <div *ngIf="password.errors.required">Password is required</div>
+      </div>
+    </div>
+
+    <div>
+      Confirm password: <input type="text" id="confirmPassword" name="confirmPassword"
+                               formControlName="confirm">
+      <div class="errors" *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
+        <div *ngIf="confirmPassword.errors.required">Confirm password is required</div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit">Submit</button> 
+  <button type="button">Reset</button>
+</form>
