@@ -1,7 +1,7 @@
 <h2>Template Driven Form Validate</h2>
 <hr>
 
-<form #form="ngForm" (ngSubmit)="onSubmit()">
+<form #form="ngForm" (ngSubmit)="onSubmit(form)" matchPassword>
   <div>
     Username: <input type="text" id="username" name="username"
                      [(ngModel)]="form.username" #username="ngModel"
@@ -23,9 +23,12 @@
 
   <div>
     Confirm password: <input type="text" id="confirmPassword" name="confirmPassword" required
-                             [(ngModel)]="form.confirmPassword" #confirmPassword="ngModel">
+                             [(ngModel)]="form.confirmPassword" #confirmPassword="ngModel" matchPassword>
     <div class="errors" *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
       <div *ngIf="confirmPassword.errors.required">Confirm password is required</div>
+    </div>
+    <div class="errors" *ngIf="form.errors?.notMatch && (confirmPassword.dirty || confirmPassword.touched)">
+      <div *ngIf="form.errors?.notMatch">Confirm password is not match</div>
     </div>
   </div>
 

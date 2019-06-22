@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { forbiddenNameValidator } from '../shared/forbidden-name.directive';
+import { matchPasswordsValidator } from '../shared/match-password-reactive.directive';
 
 @Component({
   selector: 'app-reactive',
@@ -19,7 +20,7 @@ export class ReactiveComponent implements OnInit {
       password: ['', [Validators.required]],
       confirm: ['', [Validators.required]]
     })
-  });
+  }, { validators: matchPasswordsValidator });
 
   get username() { return this.form.get('username') };
   get password() { return this.form.get('password.password') };
