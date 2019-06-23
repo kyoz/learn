@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { forbiddenNameValidator } from '../shared/forbidden-name.directive';
 import { matchPasswordsValidator } from '../shared/match-password-reactive.directive';
+import { CheckUsernameValidator } from '../shared/check-username.directive';
 
 @Component({
   selector: 'app-reactive',
@@ -11,11 +12,19 @@ import { matchPasswordsValidator } from '../shared/match-password-reactive.direc
 export class ReactiveComponent implements OnInit {
 
   form = this.formBuilder.group({
-    username: ['', [
-      Validators.required,
-      Validators.minLength(2),
-      forbiddenNameValidator(/Kyoz/i)
-    ]],
+    username: ['',
+      {
+        validators: [
+          Validators.required,
+          Validators.minLength(2),
+          forbiddenNameValidator(/Kyoz/i)
+        ],
+        asyncValidators: [
+          this.checkUsernameValidator.validate.bind(this.checkUsernameValidator)
+        ],
+        updateOn: 'blur'
+      }
+    ],
     password: this.formBuilder.group({
       password: ['', [Validators.required]],
       confirm: ['', [Validators.required]]
@@ -26,7 +35,10 @@ export class ReactiveComponent implements OnInit {
   get password() { return this.form.get('password.password') };
   get confirmPassword() { return this.form.get('password.confirm'); };
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private checkUsernameValidator: CheckUsernameValidator
+  ) { }
 
   ngOnInit() {
   }
