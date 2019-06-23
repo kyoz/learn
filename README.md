@@ -77,6 +77,7 @@
 - [ ] cordova
 - [ ] ionic
 - [ ] react native
+- [ ] vue native
 - [ ] flutter
 
 ## Libraries
