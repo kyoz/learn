@@ -1,0 +1,20 @@
+<h2>Dynamic Form</h2>
+<hr>
+
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+    <div *ngFor="let question of questions">
+      <app-question [question]="question" [form]="form"></app-question>
+    </div>
+
+    <div>
+      <button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+
+    <div *ngIf="payload">
+      <strong>Saved the following values</strong><br>{{payload}}
+    </div>
+
+  </form>
+</div>
