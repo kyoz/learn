@@ -10,6 +10,7 @@ import { ReactiveComponent } from './reactive/reactive.component';
 // Directives
 import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
 import { MatchPasswordValidatorDirective } from './shared/match-password-template.directive';
+import { CheckUsernameValidatorDirective } from './shared/check-username.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatchPasswordValidatorDirective } from './shared/match-password-templat
 
     // Directives
     ForbiddenValidatorDirective,
-    MatchPasswordValidatorDirective
+    MatchPasswordValidatorDirective,
+    CheckUsernameValidatorDirective
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule

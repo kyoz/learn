@@ -5,11 +5,15 @@
   <div>
     Username: <input type="text" id="username" name="username"
                      [(ngModel)]="form.username" #username="ngModel"
-                     required minlength="2" appForbiddenName="Kyoz">
+                     required minlength="2" appForbiddenName="Kyoz" appCheckUsername>
     <div class="errors" *ngIf="username.invalid && (username.dirty || username.touched)">
       <div *ngIf="username.errors.required">Name is required</div>
       <div *ngIf="username.errors.minlength">Name is too short</div>
       <div *ngIf="username.errors.forbiddenName">Name cannot be Kyoz</div>
+      <div *ngIf="username.errors.notExistUsername">Username is not exist (try admin)</div>
+    </div>
+    <div class="pendings">
+      <div *ngIf="username.pending">Checking...</div>
     </div>
   </div>
 
