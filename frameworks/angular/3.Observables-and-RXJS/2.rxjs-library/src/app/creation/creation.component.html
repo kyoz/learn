@@ -1,0 +1,22 @@
+<h2>Rxjs's observable creation functions</h2>
+<hr>
+
+<div>
+  <button type="button" (click)="createObservableFromPromise()">Create observable from promise</button>
+  <button type="button" (click)="createObservableFromACounter()">Create observable from a counter</button>
+  <button type="button" (click)="createObservableFromAnEvent()">Create observable from a counter</button>
+  <button type="button" (click)="createObservableThatCreateAjaxRequest()">Create observable that create an AJAX request</button>
+</div>
+
+<button type="button" (click)="logs = []">Reset log</button>
+
+<h2>Test:</h2>
+<hr>
+<div id="test-area" style="width: 40px; height: 40px; background: #bdbdbd"></div>
+
+<h2>Logs:</h2>
+<hr>
+
+<div *ngFor="let log of logs">
+  {{ log }}
+</div>
