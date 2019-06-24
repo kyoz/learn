@@ -1,0 +1,12 @@
+<h2>Multicasting</h2>
+<hr>
+
+<button (click)="createADeplayedSequence()">Create a delayed sequence</button>
+<button (click)="createMulticastSubscriber()">Create multicast subscriber</button>
+
+<hr>
+<strong>Logs:</strong>
+
+<div *ngFor="let log of logs">
+  {{ log }}
+</div>

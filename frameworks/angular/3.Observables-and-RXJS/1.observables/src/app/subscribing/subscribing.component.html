@@ -1,0 +1,13 @@
+<h2>Subscribing</h2>
+<hr>
+
+<button (click)="runObserverSubscribe()">Subscribe using observer</button>
+<button (click)="runPositionalArgumentsSubscribe()">Subscribe with positional arguments</button>
+<button (click)="clearLogs()">Clear logs</button>
+
+<hr>
+<strong>Logs:</strong>
+
+<div *ngFor="let log of logs">
+  {{ log }}
+</div>

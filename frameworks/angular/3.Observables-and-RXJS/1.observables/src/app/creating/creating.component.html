@@ -1,0 +1,18 @@
+<h2>Creating Observable</h2>
+<hr>
+
+<button (click)="createWithConstructor()">Create observable with constructor</button>
+<button (click)="createWithCustomFromEventFunction()">Create with custom fromEvent function</button>
+<button (click)="clearLogs()">Clear logs</button>
+
+<hr>
+<strong>Test:</strong>
+Click <b>Create with custom fromEvent</b> button first, then:<br>
+Type in some text and press esc: <input type="text" id="name">
+
+<hr>
+<strong>Logs:</strong>
+
+<div *ngFor="let log of logs">
+  {{ log }}
+</div>
