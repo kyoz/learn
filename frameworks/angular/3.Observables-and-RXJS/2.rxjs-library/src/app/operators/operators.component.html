@@ -1,0 +1,14 @@
+<h2>Rxjs Operators</h2>
+<hr>
+
+<button type="button" (click)="tryMapOperator()">Try map operator</button>
+<button type="button" (click)="tryPipes()">Try pipes</button>
+<button type="button" (click)="tryErrorHandling()">Try catchError</button>
+<button type="button" (click)="tryRetryFailedObservable()">Try retry failed observable</button>
+
+<h2>Logs:</h2>
+<button type="button" (click)="logs = []">Reset logs</button>
+<hr>
+<div *ngFor="let log of logs">
+  {{ log }}
+</div>

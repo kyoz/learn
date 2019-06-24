@@ -4,17 +4,20 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { CreationComponent } from './creation/creation.component';
+import { OperatorsComponent } from './operators/operators.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreationComponent
+    CreationComponent,
+    OperatorsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       { path: '', redirectTo: '/creation', pathMatch: 'full' },
-      { path: 'creation', component: CreationComponent }
+      { path: 'creation', component: CreationComponent },
+      { path: 'operators', component: OperatorsComponent }
     ])
   ],
   providers: [],
