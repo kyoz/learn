@@ -114,7 +114,7 @@
 
 ### CSS
 
-- [ ] bem
+- [ ] [bem](http://getbem.com)
 - [ ] oocss
 - [ ] smacss
 
