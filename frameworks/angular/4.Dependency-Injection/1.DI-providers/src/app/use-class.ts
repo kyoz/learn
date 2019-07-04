@@ -20,7 +20,7 @@ export class UseClassLogger {
 
 @Injectable()
 export class UseClassBetterLogger {
-  token = +new Date();
+  public token = +new Date();
 
   constructor() {
     console.log('[USECLASS_BETTER_LOGGER] init: ' + this.token);
@@ -34,7 +34,7 @@ export class UseClassBetterLogger {
 @Component({
   selector: 'use-class',
   template: `
-    <div>
+    <div style="padding-left: 56px">
       <button *ngIf="!showExample" (click)="showExample = true">Show Component 1</button>
       <use-class-child *ngIf="showExample"></use-class-child>
 
@@ -54,7 +54,7 @@ export class UseClassComponent {
   selector: 'use-class-child',
   template: `
     <div>
-      <h3>useClass</h3>
+      <h3>Component with ID: {{ _logger.token }}</h3>
       <hr>
       <button (click)="test()">Test</button>
     </div>

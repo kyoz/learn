@@ -20,7 +20,7 @@ export class UseExistingLogger {
 
 @Injectable()
 export class UseExistingBetterLogger {
-  token = +new Date();
+  public token = +new Date();
 
   constructor() {
     console.log('[USE_EXISTING_BETTER_LOGGER] init: ' + this.token);
@@ -34,7 +34,7 @@ export class UseExistingBetterLogger {
 @Component({
   selector: 'use-existing',
   template: `
-    <div>
+    <div style="padding-left: 56px">
       <button *ngIf="!showExample" (click)="showExample = true">Show Component 1</button>
       <use-existing-child *ngIf="showExample"></use-existing-child>
 
@@ -56,7 +56,7 @@ export class UseExistingComponent {
   selector: 'use-existing-child',
   template: `
     <div>
-      <h3>useExisting</h3>
+      <h3>Component with ID: {{ _logger.token }}</h3>
       <hr>
       <button (click)="test()">Test</button>
     </div>
