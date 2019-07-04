@@ -2,12 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ClassProviderWithDependencyComponent } from './class-provider-with.dependencies';
+import { UseClassComponent, UseClassChildComponent } from './use-class';
+import { UseExistingComponent, UseExistingChildComponent } from './use-existing';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClassProviderWithDependencyComponent
+    UseClassComponent,
+    UseClassChildComponent,
+    UseExistingComponent,
+    UseExistingChildComponent
   ],
   imports: [
     BrowserModule

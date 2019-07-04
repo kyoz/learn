@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'DI-providers';
+  showExample1 = false;
+  showExample11 = false;
+  showExample2 = false;
+  showExample21 = false;
 }
