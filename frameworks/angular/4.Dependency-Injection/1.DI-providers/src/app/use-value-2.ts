@@ -16,8 +16,8 @@ const DefaultMessageToken = {
   description: 'Token here',
   createAt: new Date()
 };
-export const AngularMessage = new InjectionToken<string>('Learn Angular 9');
-export const MessageToken = new InjectionToken<IMessageToken>('Token');
+export const ANGULAR_MESSAGE = new InjectionToken<string>('Learn Angular 9');
+export const MESSAGE_TOKEN = new InjectionToken<IMessageToken>('Token');
 
 @Component({
   selector: 'use-value-2',
@@ -29,15 +29,15 @@ export const MessageToken = new InjectionToken<IMessageToken>('Token');
   `,
   providers: [
     { provide: Book, useValue: AngularBook },
-    { provide: AngularMessage, useValue: 'Learn Angular 8 step by step' },
-    { provide: MessageToken, useValue: DefaultMessageToken }
+    { provide: ANGULAR_MESSAGE, useValue: 'Learn Angular 8 step by step' },
+    { provide: MESSAGE_TOKEN, useValue: DefaultMessageToken }
   ]
 })
 export class UseValue2Component {
   constructor(
     private book: Book,
-    @Inject(AngularMessage) private message: string,
-    @Inject(MessageToken) private messageToken: IMessageToken
+    @Inject(ANGULAR_MESSAGE) private message: string,
+    @Inject(MESSAGE_TOKEN) private messageToken: IMessageToken
   ) {}
 
   get token() {
