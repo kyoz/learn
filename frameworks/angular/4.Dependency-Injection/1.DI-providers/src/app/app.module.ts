@@ -6,6 +6,7 @@ import { UseClassComponent, UseClassChildComponent } from './use-class';
 import { UseExistingComponent, UseExistingChildComponent } from './use-existing';
 import { UseValueComponent } from './use-value';
 import { UseValue2Component } from './use-value-2';
+import { UseFactoryComponent } from './use-factory';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { UseValue2Component } from './use-value-2';
     UseExistingChildComponent,
 
     UseValueComponent,
-    UseValue2Component
+    UseValue2Component,
+
+    UseFactoryComponent
   ],
   imports: [
     BrowserModule

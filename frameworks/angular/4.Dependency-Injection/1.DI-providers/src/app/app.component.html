@@ -18,3 +18,13 @@
   <h3>Example 2</h3>
   <use-value-2></use-value-2>
 </div>
+
+<h2>useFactory (Factory Provider)</h2>
+<hr>
+<div style="padding-left: 56px">
+  <button (click)="showUseFactoryExample = true">Show useFactory example</button>
+  <div *ngIf="showUseFactoryExample">
+    The useFactory function is registered when angular start (See the log, it auto run to preferredCoursesFactory function when Angular start)
+    <use-factory></use-factory>
+  </div>
+</div>
