@@ -1,0 +1,22 @@
+<h1>DI in Action</h1>
+<hr>
+<div style="padding-left: 56px">
+  <h2>Nested Service Dependencies</h2>
+  <nested-service-dependencies *ngIf="showExample1"></nested-service-dependencies>
+  <button *ngIf="!showExample1" (click)="showExample1=true">Show example</button>
+  <hr>
+</div>
+
+<div style="padding-left: 56px">
+  <h2>Limit service scope to a component subtree</h2>
+  <limit-service-scope-to-a-component-subtree *ngIf="showExample2"></limit-service-scope-to-a-component-subtree>
+  <button *ngIf="!showExample2" (click)="showExample2=true">Show example</button>
+  <hr>
+</div>
+
+<div style="padding-left: 56px">
+  <h2>Multiple Service Instances (Sandboxing)</h2>
+  <multiple-service-instances *ngIf="showExample3"></multiple-service-instances>
+  <button *ngIf="!showExample3" (click)="showExample3=true">Show example</button>
+  <hr>
+</div>
