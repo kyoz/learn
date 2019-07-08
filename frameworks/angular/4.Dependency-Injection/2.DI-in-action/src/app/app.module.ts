@@ -12,6 +12,7 @@ import { ModifyProviderSearchComponent } from './components/modify-provider-sear
 import { UseClassComponent, UseClassChildComponent } from './components/use-class';
 import { UseExistingComponent, UseExistingChildComponent } from './components/use-existing';
 import { UseValueComponent, UseValueChildComponent } from './components/use-value';
+import { UseFactoryComponent, UseFactoryChildComponent } from './components/use-factory';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UseValueComponent, UseValueChildComponent } from './components/use-valu
     ModifyProviderSearchComponent,
     UseClassComponent, UseClassChildComponent,
     UseExistingComponent, UseExistingChildComponent,
-    UseValueComponent, UseValueChildComponent
+    UseValueComponent, UseValueChildComponent,
+    UseFactoryComponent, UseFactoryChildComponent
   ],
   imports: [
     BrowserModule
