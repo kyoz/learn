@@ -41,3 +41,17 @@
   <button *ngIf="!showExample6" (click)="showExample6=true">Show example</button>
   <hr>
 </div>
+
+<div style="padding-left: 56px">
+  <h2>Class Provider with <u>useClass</u></h2>
+  <use-class *ngIf="showExample7"></use-class>
+  <button *ngIf="!showExample7" (click)="showExample7=true">Show example</button>
+  <hr>
+</div>
+
+<div style="padding-left: 56px">
+  <h2>Alias Provider with <u>useExisting</u></h2>
+  <use-existing *ngIf="showExample8"></use-existing>
+  <button *ngIf="!showExample8" (click)="showExample8=true">Show example</button>
+  <hr>
+</div>

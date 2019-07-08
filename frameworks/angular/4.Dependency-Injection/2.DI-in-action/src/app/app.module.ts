@@ -9,6 +9,8 @@ import { MultipleServiceInstances, HeroComponent } from './components/multiple-s
 import { OptionalAndLimitSearch, CarComponent, TireComponent } from './components/optional-and-limit-search';
 import { CustomProviderComponent } from './components/custom-provider';
 import { ModifyProviderSearchComponent } from './components/modify-provider-search';
+import { UseClassComponent, UseClassChildComponent } from './components/use-class';
+import { UseExistingComponent, UseExistingChildComponent } from './components/use-existing';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ModifyProviderSearchComponent } from './components/modify-provider-sear
     MultipleServiceInstances, HeroComponent,
     OptionalAndLimitSearch, CarComponent, TireComponent,
     CustomProviderComponent,
-    ModifyProviderSearchComponent
+    ModifyProviderSearchComponent,
+    UseClassComponent, UseClassChildComponent,
+    UseExistingComponent, UseExistingChildComponent
   ],
   imports: [
     BrowserModule
