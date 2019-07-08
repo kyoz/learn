@@ -7,6 +7,7 @@ import { NestedServiceDependenciesComponent } from './components/nested-service-
 import { LimitServiceScopeToAComponentSubtreeComponent } from './components/limit-service-scope-to-a-component-subtree';
 import { MultipleServiceInstances, HeroComponent } from './components/multiple-service-instances';
 import { OptionalAndLimitSearch, CarComponent, TireComponent } from './components/optional-and-limit-search';
+import { CustomProviderComponent } from './components/custom-provider';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { OptionalAndLimitSearch, CarComponent, TireComponent } from './component
     NestedServiceDependenciesComponent,
     LimitServiceScopeToAComponentSubtreeComponent,
     MultipleServiceInstances, HeroComponent,
-    OptionalAndLimitSearch, CarComponent, TireComponent
+    OptionalAndLimitSearch, CarComponent, TireComponent,
+    CustomProviderComponent
   ],
   imports: [
     BrowserModule
