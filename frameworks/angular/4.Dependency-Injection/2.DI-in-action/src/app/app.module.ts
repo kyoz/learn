@@ -11,6 +11,7 @@ import { CustomProviderComponent } from './components/custom-provider';
 import { ModifyProviderSearchComponent } from './components/modify-provider-search';
 import { UseClassComponent, UseClassChildComponent } from './components/use-class';
 import { UseExistingComponent, UseExistingChildComponent } from './components/use-existing';
+import { UseValueComponent, UseValueChildComponent } from './components/use-value';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UseExistingComponent, UseExistingChildComponent } from './components/us
     CustomProviderComponent,
     ModifyProviderSearchComponent,
     UseClassComponent, UseClassChildComponent,
-    UseExistingComponent, UseExistingChildComponent
+    UseExistingComponent, UseExistingChildComponent,
+    UseValueComponent, UseValueChildComponent
   ],
   imports: [
     BrowserModule
