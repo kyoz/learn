@@ -8,6 +8,7 @@ import { LimitServiceScopeToAComponentSubtreeComponent } from './components/limi
 import { MultipleServiceInstances, HeroComponent } from './components/multiple-service-instances';
 import { OptionalAndLimitSearch, CarComponent, TireComponent } from './components/optional-and-limit-search';
 import { CustomProviderComponent } from './components/custom-provider';
+import { ModifyProviderSearchComponent } from './components/modify-provider-search';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CustomProviderComponent } from './components/custom-provider';
     LimitServiceScopeToAComponentSubtreeComponent,
     MultipleServiceInstances, HeroComponent,
     OptionalAndLimitSearch, CarComponent, TireComponent,
-    CustomProviderComponent
+    CustomProviderComponent,
+    ModifyProviderSearchComponent
   ],
   imports: [
     BrowserModule

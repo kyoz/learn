@@ -35,3 +35,9 @@
   <hr>
 </div>
 
+<div style="padding-left: 56px">
+  <h2>Modify the provider search with <u>@Self</u> and <u>@SkipSelf</u></h2>
+  <modify-provider-search *ngIf="showExample6"></modify-provider-search>
+  <button *ngIf="!showExample6" (click)="showExample6=true">Show example</button>
+  <hr>
+</div>
