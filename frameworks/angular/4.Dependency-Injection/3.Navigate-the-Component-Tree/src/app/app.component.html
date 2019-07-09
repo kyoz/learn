@@ -1,0 +1,26 @@
+<h1>Navigate the Component Tree</h1>
+<hr>
+
+<div style="padding-left: 56px">
+  <h2>Find a parent of known type</h2>
+  <find-a-parent-of-known-type *ngIf="showExample1"></find-a-parent-of-known-type>
+  <button *ngIf="!showExample1" (click)="showExample1=true">Show example</button>
+</div>
+
+<div style="padding-left: 56px">
+  <h2>Unable to find a parent by it's base class</h2>
+  <unable-to-find-parent-by-base-class *ngIf="showExample2"></unable-to-find-parent-by-base-class>
+  <button *ngIf="!showExample2" (click)="showExample2=true">Show example</button>
+</div>
+
+<div style="padding-left: 56px">
+  <h2>Find a parent by its class interface</h2>
+  <find-a-parent-by-class-interface *ngIf="showExample3"></find-a-parent-by-class-interface>
+  <button *ngIf="!showExample3" (click)="showExample3=true">Show example</button>
+</div>
+
+<div style="padding-left: 56px">
+  <h2>Find a parent in tree with @SkipSelf()</h2>
+  <find-a-parent-with-skipself *ngIf="showExample4"></find-a-parent-with-skipself>
+  <button *ngIf="!showExample4" (click)="showExample4=true">Show example</button>
+</div>
