@@ -1,0 +1,21 @@
+  <h2>Heroes</h2>
+  <hr>
+
+  Hero name: <input #newHeroName name="new-hero-name">
+  <button (click)="addHero(newHeroName.value); newHeroName.value=''">Create</button>
+  <hr>
+
+  <div *ngIf="!heroAPI.isLoading">
+    Search hero: <input #search (keyup)="searchTerm$.next(search.value)">
+  </div>
+
+  <div *ngIf="heroAPI.isLoading" style="color: rgba(0,0,0,.28)">Loading...</div>
+
+  <div *ngIf="!heroAPI.isLoading">
+    <div class="hero" *ngFor="let hero of heroAPI.heroes">
+      <span>{{ hero?.id }} - </span>
+      <input [name]="hero.id" [(ngModel)]="hero.name">
+      <button class="update-btn" (click)="updateHero(hero)">Update</button>
+      <button class="delete-btn" (click)="deleteHero(hero.id)">X</button>
+    </div>
+  </div>

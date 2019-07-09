@@ -1,0 +1,22 @@
+.hero {
+  position: relative;
+  padding: 8px 16px;
+  margin: 4px 0;
+  border: 1px solid rgba(0,0,0,.18);
+  border-radius: 2px;
+  background: rgba(0,0,0,.08);
+}
+
+.delete-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  color: red;
+}
+
+.update-btn {
+  position: absolute;
+  top: 6px;
+  right: 36px;
+  color: blue;
+}

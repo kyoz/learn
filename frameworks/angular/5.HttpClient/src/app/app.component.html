@@ -1,0 +1,10 @@
+<h1>HttpClient <span *ngIf="api.isLoading" style="color: rgba(0,0,0,.28)">(Loading...)</span></h1>
+<hr>
+
+<button (click)="api.getJSON()">Get JSON data</button><br>
+<button (click)="api.getJSONAsString()">Get JSON data as string</button><br>
+<button (click)="api.getFromDataAPI()">Get Data from API</button><br>
+<button (click)="api.getWithError()">Get with Errors</button><br>
+<button (click)="api.getWithRetry()">Get with Retry</button><br>
+
+<heroes></heroes>
