@@ -123,8 +123,9 @@
 
 ### Package Managers
 
-- [x] [npm]()
-- [x] [yarn]()
+- [x] [npm](https://www.npmjs.com/get-npm)
+- [x] [yarn](https://yarnpkg.com/en/)
+- [ ] [pnpm](https://pnpm.js.org/)
 
 ### Task Runners
 
