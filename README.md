@@ -173,7 +173,11 @@
 
 ### Deploying
 
-- [ ] Docker
+- [ ] docker
+
+### Useful
+
+- [ ] [curl](https://curl.haxx.se/docs/httpscripting.html)
 
 ## Machine Learning
 
