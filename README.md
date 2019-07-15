@@ -58,8 +58,8 @@
 
 ### Web
 
-- [ ] [angular](./frameworks/angular)
-    - [ ] ngrx
+- [x] [angular](./frameworks/angular)
+    - [ ] [ngxs](https://www.ngsx.org/)
     - [ ] universal
 - [ ] react
     - [ ] next.js
