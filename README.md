@@ -59,6 +59,7 @@
 ### Web
 
 - [x] [angular](./frameworks/angular)
+    - [ ] [ngrx](https://ngrx.io)
     - [ ] [ngxs](https://ngxs.gitbook.io/ngxs/)
     - [ ] universal
 - [ ] react
