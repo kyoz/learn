@@ -8,6 +8,9 @@ import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './components/counter/counter.reducer';
 import { loginReducer } from './components/login/login.reducer';
 
+// Modules
+import { ScoreboardModule } from './components/scoreboard/scoreboard.module';
+
 // Component
 import { AppComponent } from './app.component';
 import { CounterComponent } from './components/counter/counter.component';
@@ -25,7 +28,8 @@ import { LoginComponent } from './components/login/login.component';
     StoreModule.forRoot({
       counter: counterReducer,
       login: loginReducer
-    })
+    }),
+    ScoreboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
