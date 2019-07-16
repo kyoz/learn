@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType, act } from '@ngrx/effects';
 
-import { Observable, of, throwError } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of, throwError} from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
 
 import { add, addRandom } from './counter.actions';
 import { logInfo } from '../logger/logger.actions';
@@ -17,6 +17,12 @@ export class CounterEffects {
       ),
       error: message => logInfo(message)
     })
+  ));
+
+  add = createEffect(() => this.actions.pipe(
+    ofType(add),
+    map(action => action.payload),
+    mergeMap((payload) => of(logInfo(`[Effect] Add ${payload.value}`)))
   ));
 
   constructor(private actions: Actions) {}
