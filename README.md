@@ -60,7 +60,7 @@
 
 - [x] [angular](./frameworks/angular)
     - [x] [ngrx](https://ngrx.io)
-    - [ ] [ngxs](https://ngxs.gitbook.io/ngxs/)
+    - [x] [ngxs](https://ngxs.gitbook.io/ngxs/)
     - [ ] universal
 - [ ] react
     - [ ] next.js
