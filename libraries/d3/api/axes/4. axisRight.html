@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <title>d3.axisRight()</title>
+</head>
+<body>
+  <h2>d3.axisRight()</h2>
+
+  <script>
+    const width = 400, height = 200;
+    const data = [10, 20, 30, 40, 50];
+
+    const svg = d3.select('body')
+      .append('svg')
+      .attr('width', width)
+      .attr('height', height)
+      .style('background', '#e0e0e0');
+
+    const scale = d3.scaleLinear()
+      .domain(d3.extent(data))
+      .range([0, width]);
+
+    const xAxis = d3.axisRight().scale(scale);
+
+    svg.append('g')
+      .attr('transform', `translate(${width - 32}, 0)`)
+      .call(xAxis);
+  </script>
+
+</body>
+</html>
+
