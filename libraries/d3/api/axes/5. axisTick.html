@@ -26,8 +26,8 @@
 
     const xAxis = d3.axisBottom().scale(xScale)
       .ticks(8)
+      .tickValues([15, 20, 30, 40, 45]) // Just show ticks that match value in this array
       .tickFormat(d3.format('.1f'));
-      // .tickArguments([4], d3.format('.1f')); // This is the same as above
 
     const yAxis = d3.axisLeft().scale(yScale)
       .tickArguments([4, d3.format('$.1f')]);
