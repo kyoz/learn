@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <title>axis().tick(...)</title>
+</head>
+<body>
+  <h2>axis().tick(...)</h2>
+
+  <script>
+    const width = 680, height = 400;
+    const data = [10, 20, 30, 40, 50];
+
+    const svg = d3.select('body')
+      .append('svg')
+      .attr('width', width)
+      .attr('height', height)
+      .style('background', '#e0e0e0');
+
+    const xScale = d3.scaleLinear().domain(d3.extent(data)).range([0, width]);
+    const yScale = d3.scaleLinear().domain(d3.extent(data)).range([0, height]);
+    const yScale2 = d3.scaleLinear().domain(d3.extent(data)).range([0, height]);
+
+    const xAxis = d3.axisBottom().scale(xScale)
+      .ticks(8)
+      .tickValues([15, 20, 30, 40, 45]) // Just show ticks that match value in this array
+      .tickFormat(d3.format('.1f'));
+
+    const yAxis = d3.axisLeft().scale(yScale)
+      .tickArguments([4, d3.format('$.1f')]);
+      //              ^          ^
+      //              |          |
+      //            ticks    tickFormat
+
+    const yAxis2 = d3.axisRight().scale(yScale2)
+      // .tickSize(24)    // set both inner and outer size (default is 6)
+      .tickSizeInner(16)
+      .tickSizeOuter(32)
+      .tickPadding(16);
+
+    svg.append('g')
+      .attr('transform', `translate(0, ${height - 32})`)
+      .call(xAxis);
+    svg.append('g')
+      .attr('transform', 'translate(48, 0)')
+      .call(yAxis);
+    svg.append('g')
+      .attr('transform', `translate(${width - 64}, 0)`)
+      .call(yAxis2);
+
+  </script>
+
+</body>
+</html>
+
