@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://d3js.org/d3.v5.min.js"></script>
-  <title>brush()</title>
+  <title>brush.on</title>
 </head>
 <body>
-  <h2>brush()</h2>
+  <h2>brush.on</h2>
 
   <svg width="600" height="400" id="viz"></svg>
   <br>
@@ -31,7 +31,13 @@
       .attr("fill", "#69a3b2");
 
     // Add brushing
-    viz.call(d3.brush().extent([ [0,0], [600, 400] ]));
+    viz.call(
+      d3.brush()
+        .extent([ [0,0], [600, 400] ])
+        .on('start', () => console.log('start', d3.event))
+        .on('brush', () => console.log('brush', d3.event))
+        .on('end', () => console.log('end', d3.event))
+    );
 
     // Try brush.move
     function tryBrushMove() {
