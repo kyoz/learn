@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fetches</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+  <h2>Fetches</h2>
+
+  <script>
+    d3.text('./data.txt').then(text => console.log('d3.text => ', text));
+    d3.csv('./data.csv').then(csv => console.log('d3.csv => ', csv));
+    d3.tsv('./data.tsv').then(tsv => console.log('d3.tsv => ', tsv));
+    d3.tsv('./data.xml').then(xml => console.log('d3.xml => ', xml));
+    d3.json('./data.json').then(json => console.log('d3.json => ', json));
+    d3.html('https://github.com/kyoz').then(html => console.log('d3.html => ', html));
+    d3.image(
+      'https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzEwNC84MzAvb3JpZ2luYWwvc2h1dHRlcnN0b2NrXzExMTA1NzIxNTkuanBn',
+      { crossOrigin: 'anonymous' }
+    )
+    .then(img => console.log('d3.image => ', img));
+  </script>
+</body>
+</html>
