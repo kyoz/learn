@@ -13,7 +13,7 @@
   <div id="viz"></div>
 
   <script>
-    const width = 400, height = 600;
+    const width = 400, height = 1300;
     const svg = d3.select('#viz')
       .append('svg')
       .attr('width', width)
@@ -32,6 +32,21 @@
     addCircleWithTransition(d3.easeSinIn, 'easeSinIn', 10);
     addCircleWithTransition(d3.easeSinOut, 'easeSinOut', 11);
     addCircleWithTransition(d3.easeSin, 'easeSin - easeSinInOut', 12);
+    addCircleWithTransition(d3.easeExpIn, 'easeExpIn', 13);
+    addCircleWithTransition(d3.easeExpOut, 'easeExpOut', 14);
+    addCircleWithTransition(d3.easeExp, 'easeExp - easeExpInOut', 15);
+    addCircleWithTransition(d3.easeCircleIn, 'easeCircleIn', 16);
+    addCircleWithTransition(d3.easeCircleOut, 'easeCircleOut', 17);
+    addCircleWithTransition(d3.easeCircle, 'easeCircle - easeCircleInOut', 18);
+    addCircleWithTransition(d3.easeElasticIn, 'easeElasticIn', 19);
+    addCircleWithTransition(d3.easeElasticOut, 'easeElastic - easeElasticOut', 20);
+    addCircleWithTransition(d3.easeElasticInOut, 'easeElasticInOut', 21);
+    addCircleWithTransition(d3.easeBackIn, 'easeBackIn', 22);
+    addCircleWithTransition(d3.easeBackOut, 'easeBackOut', 23);
+    addCircleWithTransition(d3.easeBack, 'easeBack - easeBackInOut', 24);
+    addCircleWithTransition(d3.easeBounceIn, 'easeBounceIn', 25);
+    addCircleWithTransition(d3.easeBounce, 'easeBounce - easeBounceOut', 26);
+    addCircleWithTransition(d3.easeBounceInOut, 'easeBounceInOut', 27);
 
     function addCircleWithTransition(easement, easeName, yPos) {
       const circle = svg.append('circle')
