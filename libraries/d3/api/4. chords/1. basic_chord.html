@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Basic chord diagram</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+  <h2>Basic chord diagram</h2>
+
+  <div id="viz"></div>
+
+  <script>
+    const matrixData = [
+      [11975,  5871, 8916, 2868],
+      [ 1951, 10048, 2060, 6171],
+      [ 8010, 16145, 8090, 8045],
+      [ 1013,   990,  940, 6907]
+    ];
+
+    // Create SVG area
+    const svg = d3.select('#viz')
+      .append('svg')
+        .attr('width', 500)
+        .attr('height', 500)
+      .append('g')
+        .attr('transform', 'translate(250, 250)');
+
+    // Init d3.chord() with matrix data.
+    // It will calculates all the info we need to draw ribbon and arc
+    const chord = d3.chord()
+      .padAngle(0.05)
+      .sortSubgroups(d3.descending)
+      (matrixData);
+
+    console.log(chord);
+
+    // Add the group on the inner part of the circle
+    svg
+      .datum(chord)
+      .append('g')
+      .selectAll('g')
+      .data(d => d.groups)
+      .enter()
+      .append('g')
+      .append('path')
+        .style('fill', 'grey')
+        .style('stroke', 'black')
+        .attr('d', d3.arc().innerRadius(200).outerRadius(220));
+
+    // Add the links between groups
+    svg
+      .datum(chord)
+      .append('g')
+      .selectAll('path')
+      .data(d => d)
+      .enter()
+      .append('path')
+        .attr('d', d3.ribbon().radius(200))
+        .style('fill', '#69b3a2')
+        .style('stroke', 'black')
+  </script>
+
+</body>
+</html>
