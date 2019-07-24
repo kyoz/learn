@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Easing</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+  <h2>Easing</h2>
+
+  <div id="viz"></div>
+
+  <script>
+    const width = 400, height = 600;
+    const svg = d3.select('#viz')
+      .append('svg')
+      .attr('width', width)
+      .attr('height', height);
+
+    addCircleWithTransition(d3.easeLinear, 'easeLinear', 0);
+    addCircleWithTransition(d3.easePolyIn, 'easePolyIn', 1);
+    addCircleWithTransition(d3.easePolyOut, 'easePolyOut', 2);
+    addCircleWithTransition(d3.easePoly, 'easePoly - easePolyInOut', 3);
+    addCircleWithTransition(d3.easeQuadIn, 'easeQuadIn', 4);
+    addCircleWithTransition(d3.easeQuadOut, 'easeQuadOut', 5);
+    addCircleWithTransition(d3.easeQuad, 'easeQuad - easeQuadInOut', 6);
+    addCircleWithTransition(d3.easeCubicIn, 'easeCubicIn', 7);
+    addCircleWithTransition(d3.easeCubicOut, 'easeCubicOut', 8);
+    addCircleWithTransition(d3.easeCubic, 'easeCubic - easeCubicInOut', 9);
+    addCircleWithTransition(d3.easeSinIn, 'easeSinIn', 10);
+    addCircleWithTransition(d3.easeSinOut, 'easeSinOut', 11);
+    addCircleWithTransition(d3.easeSin, 'easeSin - easeSinInOut', 12);
+
+    function addCircleWithTransition(easement, easeName, yPos) {
+      const circle = svg.append('circle')
+        .attr('fill', 'steelblue')
+        .attr('r', 16);
+      const text = svg.append('text')
+        .attr('x', width / 2)
+        .attr('dy', '.25em')
+        .attr('text-anchor', 'middle')
+        .attr('font-size', '1.15em')
+        .attr('y', yPos * 40 + 16)
+        .text(easeName);
+      repeat();
+
+      function repeat() {
+        circle
+          .attr('cx', 20)
+          .attr('cy', (yPos * 40 + 16))
+          .transition()
+          .ease(easement)
+          .duration(1000)
+          .attr('cx', width)
+          .transition()
+          .ease(easement)
+          .duration(1000)
+          .attr('cx', 20)
+          .on("end", repeat);
+      }
+    }
+  </script>
+</body>
+</html>
