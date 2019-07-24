@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>d3.color</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+  <h2>d3.color</h2>
+  <div id="div" style="width: 200px; height: 200px; border: 1px solid #bdbdbd"></div>
+
+  <button onclick="reset()">reset</button>
+  <button onclick="opacity()">opacity</button>
+  <button onclick="brighter()">brighter</button>
+  <button onclick="darker()">darker</button>
+  <button onclick="hex()">hex</button>
+
+  <script>
+    const div = d3.select('#div');
+    const color = d3.color('steelblue');
+    div.style('background', color);
+
+    console.log(d3.color('steelblue'));
+    console.log(d3.color('rgb(255, 255, 255)'));
+    console.log(d3.color('rgb(10%, 20%, 30%)'));
+    console.log(d3.color('rgba(255, 255, 255, 0.4)'));
+    console.log(d3.color('rgba(10%, 20%, 30%, 0.4)'));
+    console.log(d3.color('hsl(120, 50%, 20%)'));
+    console.log(d3.color('hsla(120, 50%, 20%, 0.4)'));
+    console.log(d3.color('#ffeeaa'));
+    console.log(d3.color('#fea'));
+    console.log(d3.rgb(1,2,3,.5)); // red, green, blue, opacity
+
+    function reset() {
+      div.style('background', d3.color('steelblue'));
+    }
+
+    function opacity() {
+      const color = d3.color('steelblue');
+      color.opacity = .5;
+      div.style('background', color);
+    }
+
+    function brighter() {
+      div.style('background', d3.color('steelblue').brighter(.8));
+    }
+
+    function darker() {
+      div.style('background', d3.color('steelblue').darker(.8));
+    }
+
+    function hex() {
+      console.clear();
+      console.log(d3.color('steelblue').hex());
+      console.log(d3.color('white').hex());
+      console.log(d3.color('red').hex());
+    }
+  </script>
+</body>
+</html>
