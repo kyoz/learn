@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dragging</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <style>
+    #viz {
+      margin: auto;
+      width: 50%;
+      height: 400px;
+      border: 4px solid blue;
+      background-color: #FFF;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h2>Dragging</h2>
+
+  <div id="viz"></div>
+
+  <script>
+    const svg = d3.select('#viz')
+      .append('svg')
+      .on('click', onSvgClick);
+
+    const drag = d3.drag()
+      .on('start', onDragStart)
+      .on('drag', onDragging)
+      .on('end', onDragEnd);
+
+    svg
+      .append('circle')
+      .attr('cx', 48)
+      .attr('cy', 48)
+      .attr('r', 16)
+      .style('fill', 'blue')
+      .call(drag);
+
+    function onDragStart() {
+      d3.select(this).raise().classed('active', true);
+    }
+
+    function onDragging() {
+      d3.select(this)
+        .attr('cx', d3.event.x)
+        .attr('cy', d3.event.y);
+    }
+
+    function onDragEnd() {
+      d3.select(this).classed('active', false);
+    }
+
+    function onSvgClick() {
+      // Ignore the click event if it was suppressed
+      if (d3.event.defaultPrevented) return;
+      // Extract the click location
+      const point = d3.mouse(this),
+          p = { x: point[0], y: point[1] };
+
+      // Append a new circle
+      svg.append("circle")
+        .attr("cx", p.x)
+        .attr("cy", p.y)
+        .attr("r", 16)
+        .attr("stroke", "blue")
+        .attr("stroke-width", 2)
+        .style("fill", "white")
+        .on("click", function () {
+          d3.event.stopPropagation();
+          alert('circle clicked');
+        })
+        .call(drag);
+    }
+  </script>
+</body>
+</html>
