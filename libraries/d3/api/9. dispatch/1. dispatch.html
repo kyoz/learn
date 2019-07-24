@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dispatch</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+  <h2>Dispatch</h2>
+
+  <button onclick="start()">start</button>
+  <button onclick="startWithArgs()">start with argument</button>
+  <button onclick="end()">end</button>
+
+  <script>
+    const dispatch = d3.dispatch('start', 'end');
+
+    dispatch.on('start', args => {
+      console.log('start', args)
+    });
+    dispatch.on('end', args => console.log('end', args));
+
+    function start() {
+      dispatch.call('start');
+      dispatch.apply('start');  // Have same usage and arguments like call
+    }
+
+    function startWithArgs() {
+      dispatch.call('start', this, { args: 1, test: 'hihi' });
+    }
+
+    function end() {
+      dispatch.call('end');
+    }
+  </script>
+</body>
+</html>
