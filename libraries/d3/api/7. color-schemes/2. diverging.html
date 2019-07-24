@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Diverging</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <style>
+    .group {
+      display: flex;
+      flex-direction: row;
+    }
+  </style>
+</head>
+<body>
+  <h2>Diverging</h2>
+
+  <script>
+    const body = d3.select('body');
+
+    addExample('schemeBrBG', d3.schemeBrBG[11]);
+    addExample('interpolateBrBG', initInterpolateColors(d3.interpolateBrBG));
+
+    addExample('schemePRGn', d3.schemePRGn[11]);
+    addExample('interpolatePRGn', initInterpolateColors(d3.interpolatePRGn));
+
+    addExample('schemePiYG', d3.schemePiYG[11]);
+    addExample('interpolatePiYG', initInterpolateColors(d3.interpolatePiYG));
+
+    addExample('schemePuOr', d3.schemePuOr[11]);
+    addExample('interpolatePuOr', initInterpolateColors(d3.interpolatePuOr));
+
+    addExample('schemeRdBu', d3.schemeRdBu[11]);
+    addExample('interpolateRdBu', initInterpolateColors(d3.interpolateRdBu));
+
+    addExample('schemeRdGy', d3.schemeRdGy[11]);
+    addExample('interpolateRdGy', initInterpolateColors(d3.interpolateRdGy));
+
+    addExample('schemeRdYlBu', d3.schemeRdYlBu[11]);
+    addExample('interpolateRdYlBu', initInterpolateColors(d3.interpolateRdYlBu));
+
+    addExample('schemeRdYlGn', d3.schemeRdYlGn[11]);
+    addExample('interpolateRdYlGn', initInterpolateColors(d3.interpolateRdYlGn));
+
+    addExample('schemeSpectral', d3.schemeSpectral[11]);
+    addExample('interpolateSpectral', initInterpolateColors(d3.interpolateSpectral));
+
+    function addExample(name, colorSchemes) {
+      body
+        .append('h3').text(name)
+        .append('div').attr('class', `group ${name}`);
+      colorSchemes.forEach(color => {
+        d3.select(`.${name}`)
+          .append('div')
+            .style('width', '20px')
+            .style('height', '20px')
+            .style('background', color);
+      });
+    }
+
+    function initInterpolateColors(interpolateFunction, range) {
+      const result = [];
+      let sum = 0;
+      
+      while(sum < 1) {
+        result.push(interpolateFunction(sum));
+        sum += 0.01;
+      };
+
+      return result;
+    }
+  </script>
+</body>
+</html>

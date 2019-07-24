@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sequential</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <style>
+    .group {
+      display: flex;
+      flex-direction: row;
+    }
+  </style>
+</head>
+<body>
+  <h2>Sequential (Multi Hue)</h2>
+
+  <script>
+    const body = d3.select('body');
+
+    addExample('interpolateViridis', initInterpolateColors(d3.interpolateViridis));
+    addExample('interpolateInferno', initInterpolateColors(d3.interpolateInferno));
+    addExample('interpolateMagma', initInterpolateColors(d3.interpolateMagma));
+    addExample('interpolatePlasma', initInterpolateColors(d3.interpolatePlasma));
+    addExample('interpolateWarm', initInterpolateColors(d3.interpolateWarm));
+    addExample('interpolateCool', initInterpolateColors(d3.interpolateCool));
+    addExample('interpolateCubehelixDefault', initInterpolateColors(d3.interpolateCubehelixDefault));
+
+    body.append('hr');
+
+    addExample('schemeBuGn', d3.schemeBuGn[9])
+    addExample('interpolateBuGn', initInterpolateColors(d3.interpolateBuGn));
+
+    addExample('schemeBuPu', d3.schemeBuPu[9])
+    addExample('interpolateBuPu', initInterpolateColors(d3.interpolateBuPu));
+
+    addExample('schemeGnBu', d3.schemeGnBu[9])
+    addExample('interpolateGnBu', initInterpolateColors(d3.interpolateGnBu));
+
+    addExample('schemeOrRd', d3.schemeOrRd[9])
+    addExample('interpolateOrRd', initInterpolateColors(d3.interpolateOrRd));
+
+    addExample('schemePuBuGn', d3.schemePuBuGn[9])
+    addExample('interpolatePuBuGn', initInterpolateColors(d3.interpolatePuBuGn));
+
+    addExample('schemePuBu', d3.schemePuBu[9])
+    addExample('interpolatePuBu', initInterpolateColors(d3.interpolatePuBu));
+
+    addExample('schemePuRd', d3.schemePuRd[9])
+    addExample('interpolatePuRd', initInterpolateColors(d3.interpolatePuRd));
+
+    addExample('schemeRdPu', d3.schemeRdPu[9])
+    addExample('interpolateRdPu', initInterpolateColors(d3.interpolateRdPu));
+
+    addExample('schemeYlGnBu', d3.schemeYlGnBu[9])
+    addExample('interpolateYlGnBu', initInterpolateColors(d3.interpolateYlGnBu));
+
+    addExample('schemeYlGn', d3.schemeYlGn[9])
+    addExample('interpolateYlGn', initInterpolateColors(d3.interpolateYlGn));
+
+    addExample('schemeYlOrBr', d3.schemeYlOrBr[9])
+    addExample('interpolateYlOrBr', initInterpolateColors(d3.interpolateYlOrBr));
+
+    addExample('schemeYlOrRd', d3.schemeYlOrRd[9])
+    addExample('interpolateYlOrRd', initInterpolateColors(d3.interpolateYlOrRd));
+
+    function addExample(name, colorSchemes) {
+      body
+        .append('h3').text(name)
+        .append('div').attr('class', `group ${name}`);
+      colorSchemes.forEach(color => {
+        d3.select(`.${name}`)
+          .append('div')
+            .style('width', '20px')
+            .style('height', '20px')
+            .style('background', color);
+      });
+    }
+
+    function initInterpolateColors(interpolateFunction, range) {
+      const result = [];
+      let sum = 0;
+      
+      while(sum < 1) {
+        result.push(interpolateFunction(sum));
+        sum += 0.01;
+      };
+
+      return result;
+    }
+  </script>
+</body>
+</html>

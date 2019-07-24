@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sequential</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <style>
+    .group {
+      display: flex;
+      flex-direction: row;
+    }
+  </style>
+</head>
+<body>
+  <h2>Sequential (Single Hue)</h2>
+
+  <script>
+    const body = d3.select('body');
+
+    addExample('schemeBlues', d3.schemeBlues[9]);
+    addExample('interpolateBlues', initInterpolateColors(d3.interpolateBlues));
+
+    addExample('schemeGreens', d3.schemeGreens[9]);
+    addExample('interpolateGreens', initInterpolateColors(d3.interpolateGreens));
+
+    addExample('schemeGreys', d3.schemeGreys[9]);
+    addExample('interpolateGreys', initInterpolateColors(d3.interpolateGreys));
+
+    addExample('schemeOranges', d3.schemeOranges[9]);
+    addExample('interpolateOranges', initInterpolateColors(d3.interpolateOranges));
+
+    addExample('schemePurples', d3.schemePurples[9]);
+    addExample('interpolatePurples', initInterpolateColors(d3.interpolatePurples));
+
+    addExample('schemeReds', d3.schemeReds[9]);
+    addExample('interpolateReds', initInterpolateColors(d3.interpolateReds));
+
+    function addExample(name, colorSchemes) {
+      body
+        .append('h3').text(name)
+        .append('div').attr('class', `group ${name}`);
+      colorSchemes.forEach(color => {
+        d3.select(`.${name}`)
+          .append('div')
+            .style('width', '20px')
+            .style('height', '20px')
+            .style('background', color);
+      });
+    }
+
+    function initInterpolateColors(interpolateFunction, range) {
+      const result = [];
+      let sum = 0;
+      
+      while(sum < 1) {
+        result.push(interpolateFunction(sum));
+        sum += 0.01;
+      };
+
+      return result;
+    }
+  </script>
+</body>
+</html>

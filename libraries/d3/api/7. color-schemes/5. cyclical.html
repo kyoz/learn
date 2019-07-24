@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cyclical</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <style>
+    .group {
+      display: flex;
+      flex-direction: row;
+    }
+  </style>
+</head>
+<body>
+  <h2>Cyclical</h2>
+
+  <script>
+    const body = d3.select('body');
+
+    addExample('interpolateRainbow', initInterpolateColors(d3.interpolateRainbow));
+    addExample('interpolateSinebow', initInterpolateColors(d3.interpolateSinebow));
+
+    function addExample(name, colorSchemes) {
+      body
+        .append('h3').text(name)
+        .append('div').attr('class', `group ${name}`);
+      colorSchemes.forEach(color => {
+        d3.select(`.${name}`)
+          .append('div')
+            .style('width', '20px')
+            .style('height', '20px')
+            .style('background', color);
+      });
+    }
+
+    function initInterpolateColors(interpolateFunction, range) {
+      const result = [];
+      let sum = 0;
+      
+      while(sum < 1) {
+        result.push(interpolateFunction(sum));
+        sum += 0.01;
+      };
+
+      return result;
+    }
+  </script>
+</body>
+</html>

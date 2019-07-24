@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Categorical</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <style>
+    .group {
+      display: flex;
+      flex-direction: row;
+    }
+  </style>
+</head>
+<body>
+  <h2>Categorical</h2>
+
+  <script>
+    const body = d3.select('body');
+
+    addExample('schemeCategory10', d3.schemeCategory10);
+    addExample('schemeAccent', d3.schemeAccent);
+    addExample('schemeDark2', d3.schemeDark2);
+    addExample('schemePaired', d3.schemePaired);
+    addExample('schemePastel1', d3.schemePastel1);
+    addExample('schemePastel2', d3.schemePastel2);
+    addExample('schemeSet1', d3.schemeSet1);
+    addExample('schemeSet2', d3.schemeSet2);
+    addExample('schemeSet3', d3.schemeSet3);
+
+    function addExample(name, colorSchemes) {
+      body
+        .append('h3').text(name)
+        .append('div').attr('class', `group ${name}`);
+      colorSchemes.forEach(color => {
+        d3.select(`.${name}`)
+          .append('div')
+            .style('width', '20px')
+            .style('height', '20px')
+            .style('background', color);
+      });
+    }
+
+  </script>
+</body>
+</html>
