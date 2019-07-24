@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+  <div id="viz"></div>
+  
+  <script>
+    // Config demensions and margins of the graph
+    const actualWidth = 600, actualHeight = 500;
+    const margin = { top: 24, right: 32, bottom: 32, left: 48 },
+          width = actualWidth - margin.left - margin.right,
+          height = actualHeight - margin.top - margin.bottom;
+
+    // Add svg to body of the page
+    const svg = d3.select('#viz')
+      .append('svg')
+        .attr('width', actualWidth)
+        .attr('height', actualHeight)
+      .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+    // Read data from csv
+    d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_for_density2d.csv").then(data => {
+      // Axes
+      const xAxis = d3.scaleLinear()
+        .domain([5, 20])
+        .range([0, width]);
+      const yAxis = d3.scaleLinear()
+        .domain([5, 22])
+        .range([height, 0]);
+
+      svg.append('g')
+        .attr('transform', `translate(0, ${height})`)
+        .call(d3.axisBottom(xAxis));
+      svg.append('g')
+        .call(d3.axisLeft(yAxis));
+
+      // Compute the density data
+      const densityData = d3.contourDensity()
+        .x(function(d) { return xAxis(d.x); })   // x and y = column name in .csv input data
+        .y(function(d) { return yAxis(d.y); })
+        .size([width, height])
+        .bandwidth(20)    // smaller = more precision in lines = more lines
+        (data);
+
+     // Add the contour: several "path"
+      svg
+        .selectAll("path")
+        .data(densityData)
+        .enter()
+        .append("path")
+          .attr("d", d3.geoPath())
+          .attr("fill", "none")
+          .attr("stroke", "#69b3a2")
+          .attr("stroke-linejoin", "round")
+        });
+  </script>
+</body>
+</html>
