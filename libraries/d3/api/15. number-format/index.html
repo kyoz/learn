@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>D3 Format</title>
+  <script src="https://d3js.org/d3-format.v1.min.js"></script>
+</head>
+<body>
+  <h2>D3 Format</h2>
+
+  Type some number here: <input name="number-input" type="number">
+  <hr>
+
+  <div id="table-wrapper"></div>
+
+  <script>
+
+    const input = document.getElementsByName('number-input')[0];
+    input.addEventListener('input', onInputChange)
+
+    function onInputChange() {
+      updateTable(+this.value);
+    }
+
+    function updateTable(number) {
+      const wrapper = document.getElementById('table-wrapper');
+
+      // Remove old table
+      while (wrapper.firstChild) {
+        wrapper.removeChild(wrapper.firstChild);
+      }
+
+      // Gen table
+      let html = '<table>';
+
+      html += initTableRow('d3.format("")', d3.format("")(number));
+      html += initTableRow('d3.format("s")', d3.format("s")(number));
+      html += initTableRow('d3.format("~s")', d3.format("~s")(number));
+      html += initTableRow('d3.format(".3s")', d3.format(".3s")(number));
+      html += initTableRow('d3.format(".2s")', d3.format(".2s")(number));
+      html += initTableRow('d3.format(".1s")', d3.format(".1s")(number));
+      html += initTableRow('d3.format(",%")', d3.format(",%")(number));
+      html += initTableRow('d3.format("+,%")', d3.format("+,%")(number));
+      html += initTableRow('d3.format(",.1%")', d3.format(",.1%")(number));
+      html += initTableRow('d3.format(".4r")', d3.format(".4r")(number));
+      html += initTableRow('d3.format(".3r")', d3.format(".3r")(number));
+      html += initTableRow('d3.format(".2r")', d3.format(".2r")(number));
+      html += initTableRow('d3.format(".4f")', d3.format(".4f")(number));
+      html += initTableRow('d3.format(".3f")', d3.format(".3f")(number));
+      html += initTableRow('d3.format(".2f")', d3.format(".2f")(number));
+      html += initTableRow('d3.format(".4n")', d3.format(".4n")(number));
+      html += initTableRow('d3.format(".3n")', d3.format(".3n")(number));
+      html += initTableRow('d3.format(".2n")', d3.format(".2n")(number));
+      html += initTableRow('d3.format(".1n")', d3.format(".1n")(number));
+      html += initTableRow('d3.format(",d")', d3.format(",d")(number));
+      html += initTableRow('d3.format(",.0f")', d3.format(",.0f")(number));
+      html += initTableRow('d3.format(".0f")', d3.format(".0f")(number));
+      html += initTableRow('d3.format(".0e")', d3.format(".0e")(number));
+
+      html += '</table>';
+
+      wrapper.insertAdjacentHTML('beforeend', html);
+    }
+
+    function initTableRow(title, number) {
+      return `
+        <tr>
+          <td style="text-align: right">${title}</td>
+          <td style="padding-left: 24px">${number}</td>
+        </tr>
+      `;
+    }
+
+  </script>
+</body>
+</html>
