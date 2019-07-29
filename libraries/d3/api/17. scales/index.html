@@ -19,6 +19,8 @@
   <button onclick="example_1()">d3.scaleLinear().domain([10, 100]).range([0, 1000]);</button>
   <br>
   <button onclick="example_2()">d3.scaleLinear().domain([0, 10]).range(['black', 'white']);</button>
+  <br>
+  <button onclick="example_3()">d3.scaleLinear().domain([-1, 0, 1]).range(['red', 'green', 'blue']);</button>
 
   <script>
     function example_1() {
@@ -54,6 +56,20 @@
       console.log('color(5) ->', color(5));
       console.log('color(10) ->', color(10));
       console.log('color(100) ->', color(100));
+    }
+
+    function example_3() {
+      console.clear();
+
+      const color = d3.scaleLinear()
+        .domain([-1, 0, 1])
+        .range(['red', 'green', 'blue']);
+
+      console.log('color(-2) ->', color(-2));
+      console.log('color(-0.5) ->', color(-0.5));
+      console.log('color(0.5) ->', color(0.5));
+      console.log('color(2) ->', color(2));
+      console.log('color(20) ->', color(20));
     }
 
   </script>
