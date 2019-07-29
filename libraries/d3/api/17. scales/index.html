@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>D3 Scales - Continuous</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <style>
+    button {
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>D3 Scales - Continuous</h2>
+  <hr>
+
+  <button onclick="example_1()">d3.scaleLinear().domain([10, 100]).range([0, 1000]);</button>
+  <br>
+  <button onclick="example_2()">d3.scaleLinear().domain([0, 10]).range(['black', 'white']);</button>
+
+  <script>
+    function example_1() {
+      console.clear();
+
+      const x = d3.scaleLinear()
+        .domain([10, 100])
+        .range([0, 1000]);
+
+      // Shorthard
+      // const x = d3.scaleLinear([10, 100], [0, 1000])
+
+      console.log('x(0) ->', x(0));
+      console.log('x(10) ->', x(10));
+      console.log('x(100) ->', x(100));
+      console.log('x(1000) ->', x(1000));
+      console.log('%c Invert: given value from range -> return corresponding value from domain', 'color: red');
+      console.log('x.invert(0) ->', x.invert(-111.111));
+      console.log('x.invert(10) ->', x.invert(0));
+      console.log('x.invert(100) ->', x.invert(1000));
+      console.log('x.invert(1000) ->', x.invert(11000));
+    }
+
+    function example_2() {
+      console.clear();
+
+      const color = d3.scaleLinear()
+        .domain([0, 10])
+        .range(['black', 'white']);
+
+      console.log('color(-10) ->', color(-10));
+      console.log('color(0) ->', color(0));
+      console.log('color(5) ->', color(5));
+      console.log('color(10) ->', color(10));
+      console.log('color(100) ->', color(100));
+    }
+
+  </script>
+
+</body>
+</html>
