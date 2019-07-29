@@ -21,6 +21,30 @@
   <button onclick="example_2()">d3.scaleLinear().domain([0, 10]).range(['black', 'white']);</button>
   <br>
   <button onclick="example_3()">d3.scaleLinear().domain([-1, 0, 1]).range(['red', 'green', 'blue']);</button>
+  <br>
+  <button onclick="example_4()">d3.scaleLinear().domain([0, 10]).rangeRound([0, 1]);</button>
+  <br>
+  <button onclick="example_5()">d3.scaleLinear().domain([0, 10]).range([0, 100]); with clamp</button>
+  <br>
+  <button onclick="example_6()">d3.scaleLinear().domain([0, 10]).range([0, 100]).unknown('hihihi')</button>
+  <br>
+  <button onclick="example_7()">d3.scaleLinear().domain([0, 10]).range([10, 100]).ticks(2);</button>
+  <br>
+  <button onclick="example_8()">continuous.tickFormat([count[, specifier]])</button>
+  <br>
+  <button onclick="example_9()">d3.scaleLinear().domain([0.201479, 0.996679]).range([0, 100]).nice();</button>
+  <br>
+  <button onclick="example_10()">d3.scalePow().domain([0, 10]).range([10, 100]);</button>
+  <br>
+  <button onclick="example_11()">d3.scaleTime().domain([new Date(2019, 3, 12), new Date(2019, 9, 5)]).range(0, 100);</button>
+  <br>
+  <button onclick="example_12()">d3.scaleQuantize().domain([10, 100]).domain([1, 2, 4]);</button>
+  <br>
+  <button onclick="example_13()">d3.scaleQuantile().domain([0, 10]).range([10, 100]);</button>
+  <br>
+  <button onclick="example_14()">d3.scaleThreshold().domain([0, 1]).range(['red', 'green', 'blue']);</button>
+  <br>
+  <button onclick="example_15()">d3.scaleOrdinal().domain(['One', 'Two', 'Three']).range([0, 10]);</button>
 
   <script>
     function example_1() {
@@ -67,9 +91,191 @@
 
       console.log('color(-2) ->', color(-2));
       console.log('color(-0.5) ->', color(-0.5));
+      console.log('color(0) ->', color(0));
       console.log('color(0.5) ->', color(0.5));
       console.log('color(2) ->', color(2));
       console.log('color(20) ->', color(20));
+    }
+
+    function example_4() {
+      console.clear();
+
+      const x = d3.scaleLinear()
+        .domain([0, 10])
+        .rangeRound([0, 1]);
+
+      console.log('x(-10) ->', x(-10));
+      console.log('x(0) ->', x(0));
+      console.log('x(5) ->', x(5));
+      console.log('x(10) ->', x(10));
+      console.log('x(15) ->', x(15));
+      console.log('x(16) ->', x(16));
+      console.log('x(17) ->', x(17));
+    }
+
+    function example_5() {
+      console.clear();
+
+      const x = d3.scaleLinear()
+        .domain([0, 10])
+        .range([0, 100]);
+
+      console.log('x(-10)', x(-10));
+      console.log('x(15)', x(15));
+
+      x.clamp(true);
+      console.log('x.clamp(true) -> After this line, scale will not goes outside range');
+
+      console.log('x(-10)', x(-10));
+      console.log('x(15)', x(15));
+    }
+
+    function example_6() {
+      console.clear();
+
+      const x = d3.scaleLinear()
+        .domain([0, 10])
+        .range([0, 100])
+        .unknown('hihihi');
+
+      console.log(`x('a') -> `, x('a'), '<- Default value');
+    }
+
+    function example_7() {
+      console.clear();
+
+      const x = d3.scaleLinear()
+        .domain([0, 10])
+        .range([10, 100]);
+
+      console.log('x.ticks(2) ->', x.ticks(2));
+      console.log('x.ticks(3) ->', x.ticks(3));
+      console.log('x.ticks(5) ->', x.ticks(5));
+      console.log('x.ticks() ->', x.ticks());
+      console.log('x.ticks(15) ->', x.ticks(15));
+      console.log('x.ticks(20) ->', x.ticks(20));
+    }
+
+    function example_8() {
+      console.clear();
+
+      const x = d3.scaleLinear()
+        .domain([0, 1000000]);
+
+      const ticks = x.ticks(5);
+
+      console.log(`ticks.map(x.tickFormat(5, 's'))`, ticks.map(x.tickFormat(5, 's')));
+      console.log(`ticks.map(x.tickFormat(5, '$s'))`, ticks.map(x.tickFormat(5, '$s')));
+    }
+
+    function example_9() {
+      console.clear();
+
+      const x = d3.scaleLinear()
+        .domain([0.201479, 0.996679])
+        .range([0, 100])
+        .nice();
+
+      console.log('With nice(), domain rounded from [0.201479, 0.996679] to [0.2, 1]');
+      console.log('x(0.2) -> ', x(0.2));
+      console.log('x(1) -> ', x(1));
+    }
+
+    function example_10() {
+      console.clear();
+
+      const x = d3.scalePow()
+        .exponent(2)
+        .domain([0, 10])
+        .range([10, 100]);
+
+      console.log('x(-5) -> ', x(-5));
+      console.log('x(0) -> ', x(0));
+      console.log('x(5) -> ', x(5));
+      console.log('x(8) -> ', x(8));
+      console.log('x(10) -> ', x(10));
+      console.log('x(13) -> ', x(13));
+    }
+
+    function example_11() {
+      console.clear();
+
+      const x = d3.scaleTime()
+        .domain([new Date(2019, 3, 12), new Date(2019, 9, 5)])
+        .range([0, 100]);
+
+      console.log('x(new Date(2019, 5, 10))', x(new Date(2019, 5, 10)));
+      console.log('x(new Date(2019, 8, 10))', x(new Date(2019, 8, 10)));
+      console.log('x.invert(10)', x.invert(10));
+      console.log('x.invert(80)', x.invert(80));
+    }
+
+    function example_12() {
+      console.clear();
+
+      const x = d3.scaleQuantize()
+        .domain([10, 100])
+        .range([1, 2, 4]);
+
+      console.log('x(20)', x(20));
+      console.log('x(25)', x(25));
+      console.log('x(40)', x(40));
+      console.log('x(75)', x(75));
+      console.log('x(185)', x(185));
+      console.log('x.invertExtent(2)', x.invertExtent(2));
+      console.log('x.invertExtent(3)', x.invertExtent(3));
+    }
+
+    function example_13() {
+      console.clear();
+
+      const x = d3.scaleQuantile()
+        .domain([0, 10])
+        .range([10, 100]);
+
+      console.log('x(-10) -> ', x(-10));
+      console.log('x(0) -> ', x(0));
+      console.log('x(5) -> ', x(5));
+      console.log('x(7) -> ', x(7));
+      console.log('x(10) -> ', x(10));
+      console.log('x(12) -> ', x(12));
+      console.log('x.invertExtent(10) -> ', x.invertExtent(10));
+      console.log('x.invertExtent(15) -> ', x.invertExtent(15));
+      console.log('x.invertExtent(50) -> ', x.invertExtent(50));
+      console.log('x.invertExtent(100) -> ', x.invertExtent(100));
+    }
+
+    function example_14() {
+      console.clear();
+
+      const color = d3.scaleThreshold()
+        .domain([0, 1])
+        .range(['red', 'green', 'blue']);
+      
+      console.log('color(-1) -> ', color(-1));
+      console.log('color(0) -> ', color(0));
+      console.log('color(0.5) -> ', color(0.5));
+      console.log('color(1) -> ', color(1));
+      console.log('color(1000) -> ', color(1000));
+      console.log(`color.invertExtent('red') -> `, color.invertExtent('red'));
+      console.log(`color.invertExtent('green') -> `, color.invertExtent('green'));
+      console.log(`color.invertExtent('blue') -> `, color.invertExtent('blue'));
+    }
+
+    function example_15() {
+      console.clear();
+
+      const x = d3.scaleOrdinal()
+        .domain(['One', 'Two', 'Three'])
+        .range([0, 1, 2, 3, 4])
+        .unknown('sfd');
+
+      console.log(`x('One') -> `, x('One'));
+      console.log(`x('Two') -> `, x('Two'));
+      console.log(`x('Three') -> `, x('Three'));
+      console.log(`x('Four') -> `, x('Four'));
+      console.log(`x('aaaa') -> `, x('aaaa'));
+      console.log(`x('bbbb') -> `, x('bbbb'));
     }
 
   </script>
