@@ -45,6 +45,14 @@
   <button onclick="example_14()">d3.scaleThreshold().domain([0, 1]).range(['red', 'green', 'blue']);</button>
   <br>
   <button onclick="example_15()">d3.scaleOrdinal().domain(['One', 'Two', 'Three']).range([0, 10]);</button>
+  <br>
+  <button onclick="example_16()">d3.scaleBand().domain(['One', 'Two', 'Three']).range([10, 100]);</button>
+  <br>
+  <button onclick="example_17()">d3.scaleBand().domain(['One', 'Two', 'Three']).range([10, 100]).paddingInner(0.1);</button>
+  <br>
+  <button onclick="example_18()">d3.scaleBand().domain(['One', 'Two', 'Three']).rangeRound([19.912, 120.0123]);</button>
+  <br>
+  <button onclick="example_19()">d3.scalePoint().domain(['One', 'Two', 'Three']).rangeRound([10, 100]);</button>
 
   <script>
     function example_1() {
@@ -276,6 +284,67 @@
       console.log(`x('Four') -> `, x('Four'));
       console.log(`x('aaaa') -> `, x('aaaa'));
       console.log(`x('bbbb') -> `, x('bbbb'));
+    }
+
+    function example_16() {
+      console.clear();
+
+      const x = d3.scaleBand()
+        .domain(['One', 'Two', 'Three'])
+        .range([10, 100]);
+
+      console.log(`x('One') -> `, x('One'));
+      console.log(`x('Two') -> `, x('Two'));
+      console.log(`x('Three') -> `, x('Three'));
+      console.log(`x('Four') -> `, x('Four'));
+      console.log(`x.bandwidth() -> `, x.bandwidth());
+      console.log(`x.step() -> `, x.step());
+    }
+
+    function example_17() {
+      console.log('d3.scaleBand() with padding');
+
+      const x = d3.scaleBand()
+        .domain(['One', 'Two', 'Three'])
+        .range([10, 100])
+        .paddingInner(0.1);
+
+      console.log(`x('One') -> `, x('One'));
+      console.log(`x('Two') -> `, x('Two'));
+      console.log(`x('Three') -> `, x('Three'));
+      console.log(`x('Four') -> `, x('Four'));
+      console.log(`x.bandwidth() -> `, x.bandwidth());
+      console.log(`x.step() -> `, x.step());
+    }
+
+    function example_18() {
+      console.log('d3.scaleBand() with rangeRound');
+
+      const x = d3.scaleBand()
+        .domain(['One', 'Two', 'Three'])
+        .rangeRound([19.912, 120.0123]);
+
+      console.log(`x('One') -> `, x('One'));
+      console.log(`x('Two') -> `, x('Two'));
+      console.log(`x('Three') -> `, x('Three'));
+      console.log(`x('Four') -> `, x('Four'));
+      console.log(`x.bandwidth() -> `, x.bandwidth());
+      console.log(`x.step() -> `, x.step());
+    }
+
+    function example_19() {
+      console.clear();
+
+      const x = d3.scalePoint()
+        .domain(['One', 'Two', 'Three'])
+        .rangeRound([10, 100]);
+
+        console.log(`x('One') -> `, x('One'));
+        console.log(`x('Two') -> `, x('Two'));
+        console.log(`x('Three') -> `, x('Three'));
+        console.log(`x('Four') -> `, x('Four'));
+        console.log(`x.bandwidth() -> `, x.bandwidth());
+        console.log(`x.step() -> `, x.step());
     }
 
   </script>
