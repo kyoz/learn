@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Selection > Modifying Elements</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <style>
+    .color { color: red; }
+    .border { border: 1px solid blue; }
+  </style>
+</head>
+<body>
+  <h2>Selection > Modifying Elements</h2>
+
+  <hr>
+  <h3>selection.attr</h3>
+  <input class="attr">
+  <button onclick="tryAttr()">Try selection.attr</button>
+
+  <hr>
+  <h3>selection.classed</h3>
+  <div class="classed">Hihi</div>
+  <button onclick="tryClassed()">Try selection.classed</button>
+
+  <hr>
+  <h3>selection.style</h3>
+  <div class="style">Style me</div>
+  <button onclick="tryStyle()">Try selection.style</button>
+
+  <hr>
+  <h3>selection.property</h3>
+  <input type="checkbox" class="property">
+  <button onclick="tryProperty()">Try selection.property</button>
+
+  <script>
+    function tryAttr() {
+      d3.select('input.attr').attr('value', 'd3js');
+    }
+
+    function tryClassed() {
+      // d3.select('div.classed').classed('color border', true);
+      d3.select('div.classed').classed('color border', function() {
+        return Math.random() > 0.5;
+      });
+    }
+
+    function tryStyle() {
+      d3.select('div.style')
+        .style('color', 'green')
+        .style('font-size', '3em');
+    }
+
+    function tryProperty() {
+      d3.select('input.property')
+        .property('checked', function() {
+          return Math.random() > 0.5;
+        })
+    }
+  </script>
+</body>
+</html>
