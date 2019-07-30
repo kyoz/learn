@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Selection > Selecting Elements</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+  <h2>Selection > Selecting Elements</h2>
+
+  <hr>
+  <h3>d3.selection</h3>
+  <input type="checkbox" name="selection">A
+  <input type="checkbox" name="selection">B
+  <button onclick="trySelection()">Try</button>
+
+  <hr>
+  <h3>d3.select</h3>
+  <a name="select" href="https://google.com">Google</a>
+  <button onclick="trySelect()">Try (Click then hover on text)</button>
+
+  <hr>
+  <h3>d3.selectAll</h3>
+  <span name="select-all">One</span>
+  <span name="select-all">Two</span>
+  <span name="select-all">Three</span>
+  <button onclick="trySelectAll()">Try</button>
+
+  <hr>
+  <h3>selection.select & selection.selectAll & selection.filter</h3>
+  <div name="select-parent">
+    <span name="select-all">One</span>
+    <span name="select-all">Two</span>
+    <span name="select-all">Three</span>
+  </div>
+  <button onclick="trySelectionSelect()">Try selection.select</button>
+  <button onclick="trySelectionSelectAll()">Try selection.selectAll</button>
+  <button onclick="trySelectionFilter()">Try selection.filter</button>
+  <button onclick="trySelectionFilterV2()">Try selection.filter (v2)</button>
+
+  <hr>
+  <h3>selection.merge</h3>
+  <svg class="merge" height="48" width="200">
+  </svg>
+  <br>
+  <button onclick="trySelectionMerge()">Try selection.merge</button>
+
+  <hr>
+  <h3>d3.matcher</h3>
+  <svg class="matcher" width="100" height="32">
+    <circle class="matcher-1" r="10" cx="10" cy="10" fill="blue"></circle>
+    <circle class="matcher-2" r="10" cx="50" cy="10" fill="blue"></circle>
+  </svg>
+  <br>
+  <button onclick="tryMatcher()">Try d3.matcher</button>
+
+  <hr>
+  <h3>d3.selector</h3>
+  <div class="selector-parent">
+    <span>Hihihi</span>
+  </div>
+  <button onclick="trySelector()">Try d3.selector</button>
+
+  <hr>
+  <h3>d3.selectorAll</h3>
+  <div class="selector-all-parent">
+    <span>One</span>
+    <span>Two</span>
+  </div>
+  <button onclick="trySelectorAll()">Try d3.selectorAll</button>
+
+  <hr>
+  <h3>d3.window</h3>
+  <div class="window-parent">
+    <span class="window-child">One</span>
+  </div>
+  <button onclick="tryWindow()">Try d3.window</button>
+
+  <hr>
+  <h3>d3.style</h3>
+  <div class="style-parent">
+    <span class="style-child" style="color: red; font-weight: bold">Style me</span>
+  </div>
+  <button onclick="tryStyle()">Try d3.style</button>
+
+
+  <script>
+    let checkState = true;
+
+    function trySelection() {
+      d3.selection.prototype.checked = function(value) {
+        return arguments.length < 1
+          ? this.property('checked')
+          : this.property('checked', !!value);
+      };
+
+      d3.selectAll('input[type=checkbox][name=selection]').checked(checkState);
+      checkState = !checkState;
+    }
+
+    function trySelect() {
+      d3.select('a[name=select]')
+        .on('mouseover', function() {
+          console.log('mouseover');
+          d3.select(this).style('color', 'red');
+        })
+        .on('mouseout', function() {
+          d3.select(this).style('color', 'green');
+        })
+    }
+
+    function trySelectAll() {
+      d3.selectAll('span[name=select-all]').style('color', 'red');
+    }
+
+    function trySelectionSelect() {
+      d3.select('div[name=select-parent]').select('span').style('color', 'red');
+    }
+
+    function trySelectionSelectAll() {
+      d3.select('div[name=select-parent]').selectAll('span').style('color', 'blue');
+    }
+
+    function trySelectionFilter() {
+      d3.select('div[name=select-parent]')
+        .selectAll('span')
+        .filter(':nth-child(1),:nth-child(3)')
+        .style('color', 'green');
+    }
+
+    function trySelectionFilterV2() {
+      d3.select('div[name=select-parent]')
+        .selectAll('span')
+        .filter(function(d, i) {
+          if (i === 0 || i === 2) {
+            return true;
+          }
+        })
+        .style('color', 'yellow');
+    }
+
+    function trySelectionMerge() {
+      const svg = d3.select('svg.merge');
+      const circles = svg.selectAll('circle.merge');
+
+      circles.data([1, 2]).enter()
+        .append('circle')
+        .attr('class', d => `merge ${d}`)
+        .attr('cx', d => d * 30)
+        .attr('cy', 10)
+        .attr('r', 10)
+        .attr('fill', 'blue');
+
+      const newCircles = svg.selectAll('circle.merge')
+        .data([1, 2, 5])                     // UPDATE
+        .attr('fill', 'red');
+
+      newCircles.exit().remove();            // EXIT
+
+      newCircles.enter().append('circle')    // ENTER
+        .attr('class', d => `merge ${d}`)
+        .attr('cx', d => d * 20)
+        .attr('cy', 10)
+        .attr('r', 10)
+        .attr('fill', 'green')
+      .merge(newCircles)                     // ENTER + UPDATE
+        .attr('fill', 'black');
+    }
+
+    function tryMatcher() {
+      d3.selectAll('svg.matcher > circle').filter('.matcher-2')
+        .attr('fill', 'red');
+
+      setTimeout(() => {
+        d3.selectAll('svg.matcher > circle').filter(d3.matcher('.matcher-2'))
+          .attr('fill', 'green');
+      }, 1000);
+    }
+
+    function trySelector() {
+      const parent = d3.select('div.selector-parent');
+
+      parent.select('span').style('color', 'red');
+
+      setTimeout(() => {
+        parent.select(d3.selector('span'))
+          .style('color', 'green');
+      }, 1000);
+    }
+
+    function trySelectorAll() {
+      const parent = d3.select('div.selector-all-parent');
+
+      parent.selectAll('span').style('color', 'red');
+
+      setTimeout(() => {
+        parent.selectAll(d3.selectorAll('span'))
+          .style('color', 'green');
+      }, 1000);
+    }
+
+    function tryWindow() {
+      const child = d3.select('span.window-child');
+      child.filter(function(d, i) {
+        console.log('node', this);
+        console.log('window', d3.window(this));
+      });
+    }
+
+    function tryStyle() {
+      const child = d3.select('span.style-child');
+      child.filter(function(d, i) {
+        console.log('node', this);
+        console.log('color: ', d3.style(this, 'color'));
+        console.log('font-weight: ', d3.style(this, 'font-weight'));
+      });
+    }
+  </script>
+</body>
+</html>
