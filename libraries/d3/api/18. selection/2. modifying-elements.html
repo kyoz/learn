@@ -34,6 +34,72 @@
   <input type="checkbox" class="property">
   <button onclick="tryProperty()">Try selection.property</button>
 
+  <hr>
+  <h3>selection.text</h3>
+  <div class="text">Hihi</div>
+  <button onclick="tryText()">Try selection.text</button>
+
+  <hr>
+  <h3>selection.html</h3>
+  <div class="html">
+    <span>hihi</span>
+  </div>
+  <button onclick="tryHtml()">Try selection.html</button>
+
+  <hr>
+  <h3>selection.append</h3>
+  <div class="append">
+    <span>This is a span</span>
+  </div>
+  <button onclick="tryAppend()">Try selection.append</button>
+
+  <hr>
+  <h3>selection.append</h3>
+  <div class="remove">
+    <span>This is a span</span>
+    <div>This will be remove</div>
+  </div>
+  <button onclick="tryRemove()">Try selection.remove</button>
+
+  <hr>
+  <h3>selection.clone</h3>
+  <div class="clone">
+    <span>This will be clone</span>
+  </div>
+  <button onclick="tryClone()">Try selection.clone</button>
+
+  <hr>
+  <h3>selection.sort</h3>
+  <div class="sort">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+  </div>
+  <button onclick="trySort()">Try selection.sort</button>
+
+  <hr>
+  <h3>selection.raise</h3>
+  <div class="raise">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+  </div>
+  <button onclick="tryRaise()">Try selection.raise</button>
+
+  <hr>
+  <h3>selection.lower</h3>
+  <div class="lower">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+  </div>
+  <button onclick="tryLower()">Try selection.lower</button>
+
+  <hr>
+  <h3>d3.create</h3>
+  <div class="create"></div>
+  <button onclick="tryCreate()">Try d3.create</button>
+
   <script>
     function tryAttr() {
       d3.select('input.attr').attr('value', 'd3js');
@@ -58,6 +124,81 @@
           return Math.random() > 0.5;
         })
     }
+
+    function tryText() {
+      d3.select('div.text').text('text has been changed. see log too...');
+      console.log(d3.select('div.text').text());
+    }
+
+    function tryHtml() {
+      console.log(d3.select('div.html').html());
+      d3.select('div.html').html(`
+        <b>This is a bold text</b>
+        <i>This is an italic text</i>
+      `);
+    }
+    
+    function tryAppend() {
+      d3.select('div.append').append('div').text('This is a div');
+    }
+
+    function tryRemove() {
+      d3.select('div.remove > div').remove();
+    }
+
+    function tryClone() {
+      d3.select('div.clone > span').clone(d3.select('div.clone > span'));
+
+      // Same as
+      // d3.select('div.clone > span').select(function(d, i) {
+      //  return this.parentNode.insertBefore(this.cloneNode(this), this.nextSibling);
+      // });
+    }
+
+    function trySort() {
+      d3.selectAll('div.sort > span')
+        .data([
+          { id: 1, name: 'one' },
+          { id: 2, name: 'two' },
+          { id: 3, name: 'three' }
+        ])
+        .sort(function(a, b) {
+          return b.id - a.id;
+        }
+      );
+    }
+
+    function tryRaise() {
+      d3.select('div.raise > span').raise();
+
+      // Same as
+      // selection.each(function() {
+      //  this.parentNode.appendChild(this);
+      // });
+    }
+
+    function tryLower() {
+      d3.select('div.lower > span:nth-child(3)').lower();
+
+      // Same as
+      // selection.each(function() {
+      //  this.parentNode.insertBefore(this, this.parentNode.firstChild);
+      // });
+    }
+
+    function tryCreate() {
+      const div = d3.create('div');
+      div.text('hihi');
+      d3.select('div.create').node().appendChild(div.node());
+      console.log(div.node());
+
+      // Other tests
+      console.log(d3.select('div.create').node());
+      console.log(d3.select('div.lower > span').node());
+      console.log(d3.selectAll('span').node());
+    }
+
+
   </script>
 </body>
 </html>
