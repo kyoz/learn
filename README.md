@@ -179,6 +179,8 @@
 ### Useful
 
 - [ ] [curl](https://curl.haxx.se/docs/httpscripting.html)
+- [ ] [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [ ] [wget](https://www.gnu.org/software/wget/manual/)
 
 ## Machine Learning
 
