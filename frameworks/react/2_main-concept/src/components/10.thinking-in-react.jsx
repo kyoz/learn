@@ -15,7 +15,7 @@ class Table extends Component {
     super(props);
     this.state = {
       searchTerm: '',
-      showInStockOnly: true
+      showInStockOnly: false
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,15 +26,12 @@ class Table extends Component {
     const name = target.name;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     
-    console.log(name)
-
     this.setState({
       [name]: value
     });
   }
 
   render() {
-    console.log('render');
     return (
       <div>
         <TableSearchBar handleInputChange={ this.handleInputChange } />
@@ -90,7 +87,7 @@ class TableBody extends Component {
               <td>{ item.name }</td>
               <td>{ item.price }</td>
             </tr>
-          )};
+          )}
         </tbody>
       </table>
     );
