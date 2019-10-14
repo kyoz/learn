@@ -1,0 +1,16 @@
+.red, .green, .blue {
+  padding: 24px;
+}
+
+.red {
+  background: red;
+  margin: 24px;
+}
+
+.green {
+  background: green;
+}
+
+.blue {
+  background: blue;
+}
