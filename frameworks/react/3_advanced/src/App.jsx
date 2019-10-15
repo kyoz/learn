@@ -5,6 +5,7 @@ import './App.css';
 import ContextExample from './components/1.context';
 import ErrorBoundaryExample from './components/2.error-boundaries';
 import { RefsExample, RefsExample2 } from './components/3.refs';
+import { FragmentExample, FragmentExample2 } from './components/4.fragments';
 
 function App() {
   return (
@@ -20,6 +21,11 @@ function App() {
       <h3>3. Refs Example</h3>
       <RefsExample />
       <RefsExample2 />
+      <hr />
+
+      <h3>4. Fragment Example</h3>
+      <FragmentExample />
+      <FragmentExample2 />
       <hr />
     </Fragment>
   );
