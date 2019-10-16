@@ -16,6 +16,9 @@ import PortalExample from './components/11.portal';
 import ProfilerExample from './components/12.profiler';
 import RefsAndDomExample from './components/13.refs-and-dom';
 import RenderPropsExample from './components/14.render-props';
+import StrictModeExample from './components/15.strict-mode';
+import PropTypesExample from './components/16.prop-types';
+import UncontrolledComponentExample from './components/17.uncontrolled-components'
 
 function App() {
   return (
@@ -76,6 +79,18 @@ function App() {
 
       <h3>14. Render Props Example</h3>
       <RenderPropsExample />
+      <hr />
+
+      <h3>15. Strict mode Example</h3>
+      <StrictModeExample />
+      <hr />
+
+      <h3>16. Prop types Example</h3>
+      <PropTypesExample />
+      <hr />
+
+      <h3>17. Uncontrolled Component Example</h3>
+      <UncontrolledComponentExample />
       <hr />
     </Fragment>
   );
