@@ -29,13 +29,12 @@ class FragmentExample2 extends Component {
 
   add() {
     const newValue = this.refs.input.value;
+    const currentData = this.state.data;
+    let newId = currentData.length > 0 ?  Math.max(...currentData.map(d => d.id)) + 1 : 1;
 
     if (newValue.length === 0) {
       return;
     }
-
-    const currentData = this.state.data;
-    const newId = Math.max(...currentData.map(d => d.id)) + 1;
 
     this.setState({
       data: [
