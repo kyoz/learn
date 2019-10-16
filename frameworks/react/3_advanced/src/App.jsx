@@ -13,7 +13,9 @@ import OptimizeWithPureComponentExample from './components/8.optimize_pureCompon
 import OptimizeListWithPureComponentExample from './components/9.optimize_list_pureComponent';
 import OptimizeListWithImmerExample from './components/10.optimize_list_with_immer';
 import PortalExample from './components/11.portal';
-
+import ProfilerExample from './components/12.profiler';
+import RefsAndDomExample from './components/13.refs-and-dom';
+import RenderPropsExample from './components/14.render-props';
 
 function App() {
   return (
@@ -62,6 +64,18 @@ function App() {
 
       <h3>11. Portal Example</h3>
       <PortalExample />
+      <hr />
+
+      <h3>12. Profiler Example</h3>
+      <ProfilerExample />
+      <hr />
+
+      <h3>13. Refs and DOM Example</h3>
+      <RefsAndDomExample />
+      <hr />
+
+      <h3>14. Render Props Example</h3>
+      <RenderPropsExample />
       <hr />
     </Fragment>
   );
