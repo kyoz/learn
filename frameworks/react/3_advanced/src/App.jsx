@@ -12,6 +12,8 @@ import OptimizeShouldComponentUpdateExample from './components/7.optimize_should
 import OptimizeWithPureComponentExample from './components/8.optimize_pureComponent.jsx';
 import OptimizeListWithPureComponentExample from './components/9.optimize_list_pureComponent';
 import OptimizeListWithImmerExample from './components/10.optimize_list_with_immer';
+import PortalExample from './components/11.portal';
+
 
 function App() {
   return (
@@ -56,6 +58,10 @@ function App() {
 
       <h3>10. Optimize list with Immer</h3>
       <OptimizeListWithImmerExample />
+      <hr />
+
+      <h3>11. Portal Example</h3>
+      <PortalExample />
       <hr />
     </Fragment>
   );
