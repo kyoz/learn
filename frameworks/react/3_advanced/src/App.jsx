@@ -19,6 +19,9 @@ import RenderPropsExample from './components/14.render-props';
 import StrictModeExample from './components/15.strict-mode';
 import PropTypesExample from './components/16.prop-types';
 import UncontrolledComponentExample from './components/17.uncontrolled-components'
+import HookStateExample from './components/18.hook-state';
+import HookEffectExample from './components/19.hook-effect';
+import LifeCycleExample from './components/20.life-cycle';
 
 function App() {
   return (
@@ -91,6 +94,18 @@ function App() {
 
       <h3>17. Uncontrolled Component Example</h3>
       <UncontrolledComponentExample />
+      <hr />
+
+      <h3>18. Hook State Example</h3>
+      <HookStateExample />
+      <hr />
+
+      <h3>19. Hook Effect Example</h3>
+      <HookEffectExample />
+      <hr />
+
+      <h3>20. Life Cycle Example</h3>
+      <LifeCycleExample />
       <hr />
     </Fragment>
   );
