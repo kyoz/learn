@@ -1,23 +1,74 @@
 import Layout from '../layouts/Layout'
 import Link from 'next/link';
+import fetch from 'isomorphic-unfetch';
 
-const PostLink = props => (
+const MovieLink = ({ show }) => (
   <li>
-    <Link href={`/post?title=${props.title}`}>
-      <a>{props.title}</a>
+    <Link href="/movie/[id]" as={`/movie/${show.id}`}>
+      <a>{show.name}</a>
     </Link>
+    <style jsx>{`
+      li {
+        list-style: none;
+        margin: 5px 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: blue;
+        font-family: 'Arial';
+      }
+
+      a:hover {
+        opacity: 0.6;
+      }
+    `}</style>
   </li>
 );
-export default function Blog() {
-  return (
-    <Layout>
-      <h1>My Blog</h1>
-      <ul>
-        <PostLink title="Hello Next.js" />
-        <PostLink title="Next.js is Awesome" />
-        <PostLink title="About me" />
-        <PostLink title="How to deploy Next.js" />
-      </ul>
-    </Layout>
-  )
+
+const Index = props => (
+  <Layout>
+    <h1>Batman TV Shows</h1>
+    <ul>
+      {props.shows.map(show => (
+        <MovieLink key={show.id} show={show} />
+      ))}
+    </ul>
+    <style jsx>{`
+      h1, a {
+        font-family: 'Arial';
+      }
+
+      ul {
+        padding: 0;
+      }
+      
+      li {
+        list-style: none;
+        margin: 5px 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: blue;
+      }
+
+      a:hover {
+        opacity: 0.6;
+      }
+    `}</style>
+  </Layout>
+);
+
+Index.getInitialProps = async function() {
+  const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
+  const data = await res.json();
+
+  console.log(`Show data fetched. Count: ${data.length}`);
+
+  return {
+    shows: data.map(entry => entry.show)
+  };
 };
+
+export default Index;
