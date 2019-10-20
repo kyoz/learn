@@ -1,0 +1,43 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "multi private-next-pages/about.js": 0,
+      "multi private-next-pages/index.js": 1,
+      "multi private-next-pages/movie/[id].js": 2,
+      "multi private-next-pages/post.js": 3,
+      "multi next/dist/pages/_app": 4,
+      "multi next/dist/pages/_error": 5,
+      "multi next/dist/pages/_document": 6
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6
+    }
+  },
+  "chunks": {
+    "byName": {
+      "static/OVz2Ky1GvJM2nfFDV3Q4c/pages/_app.js": 0,
+      "static/OVz2Ky1GvJM2nfFDV3Q4c/pages/_document.js": 1,
+      "static/OVz2Ky1GvJM2nfFDV3Q4c/pages/_error.js": 2,
+      "static/OVz2Ky1GvJM2nfFDV3Q4c/pages/about.js": 3,
+      "static/OVz2Ky1GvJM2nfFDV3Q4c/pages/index.js": 4,
+      "static/OVz2Ky1GvJM2nfFDV3Q4c/pages/movie/[id].js": 5,
+      "static/OVz2Ky1GvJM2nfFDV3Q4c/pages/post.js": 6
+    },
+    "bySource": {},
+    "usedIds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  }
+}

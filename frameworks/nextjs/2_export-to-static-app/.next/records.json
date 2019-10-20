@@ -1,0 +1,31 @@
+{
+  "modules": {
+    "byIdentifier": {},
+    "usedIds": {}
+  },
+  "chunks": {
+    "byName": {
+      "commons": 0,
+      "static/runtime/webpack.js": 1,
+      "static/OVz2Ky1GvJM2nfFDV3Q4c/pages/_app.js": 2,
+      "static/OVz2Ky1GvJM2nfFDV3Q4c/pages/_error.js": 3,
+      "static/OVz2Ky1GvJM2nfFDV3Q4c/pages/about.js": 4,
+      "static/OVz2Ky1GvJM2nfFDV3Q4c/pages/index.js": 5,
+      "static/OVz2Ky1GvJM2nfFDV3Q4c/pages/movie/[id].js": 6,
+      "static/OVz2Ky1GvJM2nfFDV3Q4c/pages/post.js": 7,
+      "static/runtime/main.js": 8
+    },
+    "bySource": {},
+    "usedIds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  }
+}
