@@ -1,0 +1,45 @@
+{
+  "devFiles": [],
+  "pages": {
+    "/": [
+      "static/runtime/webpack-2c584986d506a8e0d95d.js",
+      "static/chunks/commons.9b640fa9ad980633056e.js",
+      "static/runtime/main-86717d6c8fef1dc6df7e.js"
+    ],
+    "/_app": [
+      "static/runtime/webpack-2c584986d506a8e0d95d.js",
+      "static/chunks/commons.9b640fa9ad980633056e.js",
+      "static/runtime/main-86717d6c8fef1dc6df7e.js"
+    ],
+    "/_error": [
+      "static/runtime/webpack-2c584986d506a8e0d95d.js",
+      "static/chunks/commons.9b640fa9ad980633056e.js",
+      "static/runtime/main-86717d6c8fef1dc6df7e.js"
+    ],
+    "/about": [
+      "static/runtime/webpack-2c584986d506a8e0d95d.js",
+      "static/chunks/commons.9b640fa9ad980633056e.js",
+      "static/runtime/main-86717d6c8fef1dc6df7e.js"
+    ],
+    "/index": [
+      "static/runtime/webpack-2c584986d506a8e0d95d.js",
+      "static/chunks/commons.9b640fa9ad980633056e.js",
+      "static/runtime/main-86717d6c8fef1dc6df7e.js"
+    ],
+    "/p/deploy-nextjs": [
+      "static/runtime/webpack-2c584986d506a8e0d95d.js",
+      "static/chunks/commons.9b640fa9ad980633056e.js",
+      "static/runtime/main-86717d6c8fef1dc6df7e.js"
+    ],
+    "/p/hello-nextjs": [
+      "static/runtime/webpack-2c584986d506a8e0d95d.js",
+      "static/chunks/commons.9b640fa9ad980633056e.js",
+      "static/runtime/main-86717d6c8fef1dc6df7e.js"
+    ],
+    "/p/learn-nextjs": [
+      "static/runtime/webpack-2c584986d506a8e0d95d.js",
+      "static/chunks/commons.9b640fa9ad980633056e.js",
+      "static/runtime/main-86717d6c8fef1dc6df7e.js"
+    ]
+  }
+}

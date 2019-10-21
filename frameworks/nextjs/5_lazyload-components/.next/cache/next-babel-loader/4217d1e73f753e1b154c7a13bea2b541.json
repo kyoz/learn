@@ -1,0 +1,1 @@
+{"ast":null,"code":"import withPost from '../../lib/with-post';\nexport default withPost({\n  title: 'Deploy apps with ZEIT now',\n  content: `\nDeploying apps to ZEIT now is pretty easy.\nSimply run the following command from your app root:\n~~~bash\nnpm i -g now # one time command\nnow\n~~~\n`\n});","map":null,"metadata":{},"sourceType":"module"}

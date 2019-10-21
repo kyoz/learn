@@ -1,0 +1,36 @@
+{
+  "modules": {
+    "byIdentifier": {},
+    "usedIds": {}
+  },
+  "chunks": {
+    "byName": {
+      "commons": 0,
+      "static/runtime/webpack.js": 1,
+      "static/ksJrP1EY4J8HivMuGomR0/pages/_app.js": 2,
+      "static/ksJrP1EY4J8HivMuGomR0/pages/_error.js": 3,
+      "static/ksJrP1EY4J8HivMuGomR0/pages/about.js": 4,
+      "static/ksJrP1EY4J8HivMuGomR0/pages/index.js": 5,
+      "static/ksJrP1EY4J8HivMuGomR0/pages/p/deploy-nextjs.js": 6,
+      "static/ksJrP1EY4J8HivMuGomR0/pages/p/hello-nextjs.js": 7,
+      "static/ksJrP1EY4J8HivMuGomR0/pages/p/learn-nextjs.js": 8,
+      "static/runtime/main.js": 9
+    },
+    "bySource": {
+      "0 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!lib/with-post.js react-highlight": 10
+    },
+    "usedIds": [
+      0,
+      1,
+      10,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import withPost from '../../lib/with-post';\nexport default withPost({\n  title: 'Learn Next.js website is awesome',\n  content: `\nTo start learning Next.js, simply visit: <https://learnnextjs.com>\n`\n});","map":null,"metadata":{},"sourceType":"module"}
