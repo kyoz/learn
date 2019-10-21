@@ -1,0 +1,44 @@
+{
+  "modules": {
+    "byIdentifier": {},
+    "usedIds": {}
+  },
+  "chunks": {
+    "byName": {
+      "commons": 0,
+      "static/runtime/webpack.js": 1,
+      "static/iKkMtp-3QBxGL1FOOHdPD/pages/_app.js": 2,
+      "static/iKkMtp-3QBxGL1FOOHdPD/pages/_error.js": 3,
+      "static/iKkMtp-3QBxGL1FOOHdPD/pages/about.js": 4,
+      "static/iKkMtp-3QBxGL1FOOHdPD/pages/index.js": 5,
+      "static/iKkMtp-3QBxGL1FOOHdPD/pages/p/[id].js": 6,
+      "static/runtime/main.js": 7,
+      "static/IClGrVVwafouKsx-ovdUJ/pages/_app.js": 8,
+      "static/IClGrVVwafouKsx-ovdUJ/pages/_error.js": 9,
+      "static/IClGrVVwafouKsx-ovdUJ/pages/about.js": 10,
+      "static/IClGrVVwafouKsx-ovdUJ/pages/index.js": 11,
+      "static/IClGrVVwafouKsx-ovdUJ/pages/p/[id].js": 12,
+      "static/rykHEKzElwe6G1AWV0GOD/pages/_app.js": 2,
+      "static/rykHEKzElwe6G1AWV0GOD/pages/_error.js": 3,
+      "static/rykHEKzElwe6G1AWV0GOD/pages/about.js": 4,
+      "static/rykHEKzElwe6G1AWV0GOD/pages/index.js": 5,
+      "static/rykHEKzElwe6G1AWV0GOD/pages/p/[id].js": 6
+    },
+    "bySource": {
+      "0 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!lib/load-db.js firebase/database": 13,
+      "0 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!lib/load-db.js firebase/app": 14
+    },
+    "usedIds": [
+      0,
+      1,
+      13,
+      14,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  }
+}

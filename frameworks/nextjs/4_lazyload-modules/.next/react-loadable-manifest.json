@@ -1,0 +1,78 @@
+{
+  "firebase/app": [
+    {
+      "id": "Wcq6",
+      "name": "./node_modules/firebase/app/dist/index.cjs.js",
+      "file": "static/chunks/14.f375202bf6cd40006a36.js",
+      "publicPath": "static/chunks/14.f375202bf6cd40006a36.js"
+    },
+    {
+      "id": "mrSG",
+      "name": "./node_modules/tslib/tslib.es6.js",
+      "file": "static/chunks/14.f375202bf6cd40006a36.js",
+      "publicPath": "static/chunks/14.f375202bf6cd40006a36.js"
+    },
+    {
+      "id": "q/0M",
+      "name": "./node_modules/@firebase/logger/dist/index.esm.js",
+      "file": "static/chunks/14.f375202bf6cd40006a36.js",
+      "publicPath": "static/chunks/14.f375202bf6cd40006a36.js"
+    },
+    {
+      "id": "wj3C",
+      "name": "./node_modules/@firebase/app/dist/index.cjs.js",
+      "file": "static/chunks/14.f375202bf6cd40006a36.js",
+      "publicPath": "static/chunks/14.f375202bf6cd40006a36.js"
+    },
+    {
+      "id": "zVF4",
+      "name": "./node_modules/@firebase/util/dist/index.cjs.js",
+      "file": "static/chunks/14.f375202bf6cd40006a36.js",
+      "publicPath": "static/chunks/14.f375202bf6cd40006a36.js"
+    }
+  ],
+  "firebase/database": [
+    {
+      "id": "8oxB",
+      "name": "./node_modules/process/browser.js",
+      "file": "static/chunks/13.d96b4bdf00df5d3c9c79.js",
+      "publicPath": "static/chunks/13.d96b4bdf00df5d3c9c79.js"
+    },
+    {
+      "id": "NSPt",
+      "name": "./node_modules/@firebase/database/dist/index.cjs.js",
+      "file": "static/chunks/13.d96b4bdf00df5d3c9c79.js",
+      "publicPath": "static/chunks/13.d96b4bdf00df5d3c9c79.js"
+    },
+    {
+      "id": "Zs65",
+      "name": "./node_modules/firebase/database/dist/index.esm.js",
+      "file": "static/chunks/13.d96b4bdf00df5d3c9c79.js",
+      "publicPath": "static/chunks/13.d96b4bdf00df5d3c9c79.js"
+    },
+    {
+      "id": "mrSG",
+      "name": "./node_modules/tslib/tslib.es6.js",
+      "file": "static/chunks/13.d96b4bdf00df5d3c9c79.js",
+      "publicPath": "static/chunks/13.d96b4bdf00df5d3c9c79.js"
+    },
+    {
+      "id": "q/0M",
+      "name": "./node_modules/@firebase/logger/dist/index.esm.js",
+      "file": "static/chunks/13.d96b4bdf00df5d3c9c79.js",
+      "publicPath": "static/chunks/13.d96b4bdf00df5d3c9c79.js"
+    },
+    {
+      "id": "wj3C",
+      "name": "./node_modules/@firebase/app/dist/index.cjs.js",
+      "file": "static/chunks/13.d96b4bdf00df5d3c9c79.js",
+      "publicPath": "static/chunks/13.d96b4bdf00df5d3c9c79.js"
+    },
+    {
+      "id": "zVF4",
+      "name": "./node_modules/@firebase/util/dist/index.cjs.js",
+      "file": "static/chunks/13.d96b4bdf00df5d3c9c79.js",
+      "publicPath": "static/chunks/13.d96b4bdf00df5d3c9c79.js"
+    }
+  ]
+}
