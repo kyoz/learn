@@ -62,8 +62,8 @@
     - [x] [ngrx](https://ngrx.io)
     - [x] [ngxs](https://ngxs.gitbook.io/ngxs/)
     - [ ] universal
-- [ ] react
-    - [ ] next.js
+- [x] react
+    - [x] next.js
     - [ ] after.js
 - [ ] vue
     - [ ] vuex
@@ -72,12 +72,12 @@
 
 ### Desktop
 
-- [ ] [electron]()
+- [x] [electron]()
 
 ### Mobile
 
 - [ ] cordova
-- [ ] ionic
+- [x] ionic
 - [ ] react native
 - [ ] vue native
 - [ ] flutter
@@ -86,7 +86,7 @@
 
 ### Reactive Programming
 
-- [ ] rxjs
+- [x] rxjs
 - [ ] [rxdb](https://github.com/pubkey/rxdb)
 
 ### Data Structure
@@ -95,12 +95,16 @@
 
 ### Data Visualization
 
-- [ ] d3
+- [x] d3
+
+### Animations
+
+- [ ] [ScrollMagic](https://github.com/janpaepke/ScrollMagic)
 
 ### Useful Libraries
 
-- [ ] momentjs
-- [ ] lodash
+- [x] momentjs
+- [x] lodash
 - [ ] underscore
 
 
