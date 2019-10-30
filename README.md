@@ -16,6 +16,7 @@
     * [Reactive Programming](#reactive-programming)
     * [Data Structure](#data-structure)
     * [Data Visualization](#data-visualization)
+    * [Animations](#animations)
     * [Useful Libraries](#useful-libraries)
 * [Templating Engines](#templating-engines)
 * [Architecture](#architecture)
