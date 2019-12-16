@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app-1">
+    <h2>Data and method</h2>
+    <hr />
+    <span>{{ a }}</span>
+    <button v-on:click="add">+1</button>
+  </div>
+
+  <div id="app-2">
+    <h2>Lifecycle Hooks</h2>
+    <hr />
+    <span>{{ a }}</span>
+    <button v-on:click="add">+1</button>
+    <button v-on:click="destroy">Destroy component</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    /***************************************************************************
+     ********************        Data and Methods        ***********************
+     **************************************************************************/
+    const data = { a: 1 };
+
+    const vm = new Vue({
+      el: '#app-1',
+      data,
+      methods: {
+        add: function() {
+          this.a += 1;
+        }
+      }
+    });
+
+    // Vue instances expose a number of useful instance properties & methods
+    console.log(vm.$el === document.getElementById('app-1'));
+    console.log(data === vm.$data);
+
+    vm.$watch('a', (newValue, oldValue) => {
+      console.log({ newValue, oldValue });
+    });
+      
+    /***************************************************************************
+     ********************        Life cycle hooks        ***********************
+     **************************************************************************/
+    const vm2 = new Vue({
+      el: '#app-2',
+      data: { a: 1 },
+      beforeCreate: function() { console.log('[beforeCreate] a is: ' + this.a); },
+      created: function() { console.log('[created] a is: ' + this.a); },
+      beforeMount: function() { console.log('[beforeMount] a is: ' + this.a); },
+      mounted: function() { console.log('[mounted] a is: ' + this.a); },
+      beforeUpdate: function() { console.log('[beforeUpdate] a is: ' + this.a); },
+      updated: function() { console.log('[updated] a is: ' + this.a); },
+      beforeDestroy: function() { console.log('[beforeDestroy] a is: ' + this.a); },
+      destroyed: function() { console.log('[destroyed] a is: ' + this.a); },
+      methods: {
+        add: function() {
+          this.a += 1;
+        },
+        destroy: function() {
+          vm2.$destroy();
+          console.log('After destroyed, dom still exist but not have binding, mapping...');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
