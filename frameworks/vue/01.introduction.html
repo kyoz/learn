@@ -40,6 +40,16 @@
     <button v-on:click="reverseMessage">Reverse message</button>
   </div>
 
+  <br/>
+
+  <div id="app-6">
+    <todo-item data="1"
+               v-for="item in [1,2,3]"
+               v-bind:data="item"
+               v-bind:key="item">
+    </todo-item>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
     const app = new Vue({ el: '#app', data: { message: 'Hello Vue !' } });
@@ -67,6 +77,18 @@
         }
       }
     });
+
+    // Define a new component
+    Vue.component('todo-item', {
+      props: ['data'],
+      template: `
+        <div>I am component {{data}}</div>
+      `
+    });
+
+    const app6 = new Vue({
+      el: '#app-6'
+    })
   </script>
 </body>
 </html>
