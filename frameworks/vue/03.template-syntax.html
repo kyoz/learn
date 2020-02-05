@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- INTERPOLATION -->
+  <h2>Interpolation</h2>
+  <div id="interpolation-example">
+    <div>{{ data }}</div>
+    <div>{{ bindOnceData  }}</div>
+    <div v-html="divData" style="color: green">Hihi</div>
+    <div v-bind:id="id">Inspect to view my id change to: {{ id }}</div>
+    <div>Javascript expression: 1 + 1 = {{ 1 + 1 }}</div>
+  </div>
+  <hr>
+
+  <h2>Directives</h2>
+  <div id="directive-example">
+    <label>This input get 'disabled' and 'value' attribute binding replace by every 2s: </label>
+    <input v-bind:[attribute]="'true'" />
+    <br>
+    <label>Modifiers: (.prevent)</label>
+    <input v-on:keypress.prevent="pressed($event)" />
+  </div>
+  <hr>
+
+  <h2>Shorthands</h2>
+  <div id="shorthand-example">
+    <div>Vue support shorthand directives: v-bind and v-on</div>
+    <label>This in put bind value with shorthand v-bind:value => :value</label>
+    <input :value="'Hihi'" />
+    <br/>
+    <label>This button bind event with shorthand v-on:click=> @click</label>
+    <button @click="onClicked">Click me</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    // INTERPOLATION
+    const app = new Vue({
+      el: '#interpolation-example',
+      data: {
+        data: 'Two way binding data: ...',
+        bindOnceData: 'One way binding data: This data is just bind one way to DOM',
+        divData: '<div style="color: red">This div will replace DOM div with v-html. Without v-html. Tag in string not render</div>',
+        id: 1
+      },
+      mounted: function() {
+        setInterval(() => {
+          this.data = 'Two way binding data: ' + new Date()
+          this.id += 1;
+        }, 1000);
+      }
+    });
+
+    // DIRECTIVES
+    const app2 = new Vue({
+      el: '#directive-example',
+      data: {
+        enable: true,
+        attribute: 'disabled'
+      },
+      methods: {
+        pressed: function(event) {
+          console.log(event);
+          alert(`You pressed ${event.key}. But this will not show to input cause modifiers .prevent`);
+        }
+      },
+      mounted: function() {
+        setInterval(() => {
+          this.enable = !this.enable;
+          this.attribute = this.enable ? 'value': 'disabled';
+        }, 3000);
+      }
+    });
+
+    // SHORTHANDS
+    const app3 = new Vue({
+      el: '#shorthand-example',
+      methods: {
+        onClicked: function() {
+          alert('You clicked me with shorthand binding @click="function"');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
