@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- COMPUTED PROPERTIES -->
+  <h2>Computed Properties</h2>
+  <div id="computed-properties-example">
+    <label>Type some text</label>
+    <input v-model="value"/>
+    <div>Normal text: {{ value }}</div>
+    <div>Reverse text: {{ reverseText }}</div>
+    <div>With get & setter: {{ withGetAndSetter }}</div>
+    <button @click="onClick">Click to set to my name</button>
+  </div>
+  <hr />
+
+  <!-- WATCHERS -->
+  <h2>Watchers</h2>
+  <div id="watchers-example">
+    <label>Type here</label>
+    <input v-model="data"/>
+    <div>Everytime input change (model binding data change), watcher with run</div>
+    <div>Watcher output: {{ displayData }}</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#computed-properties-example',
+      data: {
+        value: 'type text here'
+      },
+      computed: {
+        reverseText: function() {
+          return this.value.split('').reverse().join('');
+        },
+        withGetAndSetter:  {
+          get: function() {
+            return 'getter: ' + this.value;
+          },
+          set: function(newValue) {
+            this.value = newValue;
+          }
+        }
+      },
+      methods: {
+        onClick: function() {
+          this.withGetAndSetter = 'Kyoz';
+        }
+      }
+    });
+
+    const app2 = new Vue({
+      el: '#watchers-example',
+      data: {
+        data: '',
+        displayData: ''
+      },
+      watch: {
+        data: function(newData, oldData) {
+          this.displayData = JSON.stringify({newData, oldData});
+        }
+      }
+    })
+  </script>
+</body>
+</html>
