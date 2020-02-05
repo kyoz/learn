@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .active {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <!-- CLasses Binding -->
+  <h2>Classes Binding</h2>
+  <div>Inspect to view classes changes</div>
+  <br />
+  <div id="class-binding-example">
+    <div class="default" :class="objectSyntaxClass">Object Syntax Binding (Use with computed properties is a best practice)</div>
+    <div :class="['active', 'class_2']">Array Syntax Binding</div>
+    <child-component class="one" :class="['two', 'three']"></child-component>
+
+    <br />
+    <button @click="toggleActive">Toggle</button>
+  </div>
+  <hr />
+
+  <!-- Inline Styles Binding -->
+  <h2>Inline Styles Binding</h2>
+  <div>Inspect to view styles changes</div>
+  <br />
+  <div>Styling with vue also have vendor prefixes, so no worries</div>
+  <div id="inline-styles-binding-example">
+    <div style="color: red" :style="inlineStyles">this is styled with inline styles</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    Vue.component('child-component', {
+      template: '<p>This is child component. Class add to template tag will add to this p</p>'
+    });
+
+    const app = new Vue({
+      el: '#class-binding-example',
+      data: {
+        isActive: true,
+      },
+      computed: {
+        objectSyntaxClass: function() {
+          return this.isActive ? 'active' : '';
+        }
+      },
+      methods: {
+        toggleActive: function() {
+          this.isActive = !this.isActive;
+        }
+      }
+    });
+
+    const app2 = new Vue({
+      el: '#inline-styles-binding-example',
+      data: {
+        inlineStyles: {
+          fontSize: '2em',
+          'text-transform': 'capitalize'
+        }
+      }
+    })
+
+  </script>
+</body>
+</html>
