@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Conditional Rendering</h1>
+  <hr />
+
+  <!-- v-if & v-else & v-else-if -->
+  <h2>v-if & v-else & v-else-if</h2>
+  <div id="vif-velse-example">
+    <hr />
+    <h3>v-if & v-else example</h3>
+    <template v-if="active">
+      <div>This is rendering via v-if</div>
+    </template>
+    <template v-else>
+      <div>This is rendering via v-else</div>
+    </template>
+
+    <button @click="active=!active">Toggle</button>
+
+    <hr />
+    <h3>v-if & v-else-if example</h3>
+    <template v-if="activeMore === 'active'">
+      <div>Active</div>
+    </template>
+    <template v-else-if="activeMore === 'waiting'">
+      <div>Waiting</div>
+    </template>
+    <template v-else>
+      <div>Done</div>
+    </template>
+
+    <button @click="toggleActiveMore">Toggle</button>
+
+    <hr />
+    <h3>Reuseable component (prevent with key)</h3>
+    <div>Type some text and press toggle. The value is still remain</div>
+    <template v-if="active">
+      <label>Username</label>
+      <input placeholder="Enter your username">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Enter your email address">
+    </template>
+
+    <div>Type some text and press toggle. The value is not remain (cause input now have seperate keys)</div>
+    <template v-if="active">
+      <label>Username</label>
+      <input placeholder="Enter your username" key="user">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Enter your email address" key="email">
+    </template>
+
+    <br>
+    <button @click="active=!active">Toggle</button>
+
+    <hr />
+    <h3>v-show example</h3>
+    <div>When toggle v-show, it just show and hide. Not remove from the DOM. v-show not work with template</div>
+    <div v-show="active">Toggle to hide me</div>
+    <button @click="active=!active">Toggle</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#vif-velse-example',
+      data: {
+        active: true,
+        activeMore: 'active'
+      },
+      methods: {
+        toggleActiveMore: function() {
+          if (this.activeMore === 'active') {
+            this.activeMore = 'waiting';
+            return;
+          }
+
+          if (this.activeMore === 'waiting') {
+            this.activeMore = 'done';
+            return;
+          }
+
+          this.activeMore = 'active';
+        }
+      }
+    });
+
+  </script>
+</body>
+</html>
