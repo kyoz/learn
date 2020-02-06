@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Conditional Rendering</h1>
+  <hr />
+
+  <div id="example">
+    <!-- Event listeners -->
+    <h2>Event Listeners</h2>
+    <span>{{ counter }}</span>
+    <button @click="counter++">Add 1 (inline)</button>
+    <button @click="addOne">Add 1 (with method)</button>
+    <button @click="say('Hi')">Say Hi</button>
+    <button @click="say('Hello')">Say Hello</button>
+    <hr>
+
+    <!-- Event Modifiers-->
+    <h2>Event Modifiers</h2>
+    <h3>.stop</h3>
+    <a href="#" @click.stop="addOne">This link call addOne function and stopPropagation</a>
+
+    <h3>.prevent</h3>
+    <a href="https://google.com" @click.prevent>This link does nothing</a>
+
+    <h3>.capture</h3>
+    <div>An event targeting an inner element is handled here before being handled by that element</div>
+    <div @click.capture="addOne">Hi</div>
+
+    <h3>.self</h3>
+    <div>Only trigger handler if event.target is the element itself </div>
+    <div @click.self="addOne">Hi</div>
+
+    <h3>.once</h3>
+    <div>The click event will be triggerable just one first time</div>
+    <div @click.once="addOne">Hi</div>
+
+    <h3>.passive</h3>
+    <div>Uhe scroll event's default behavior (scrolling) will happen immediately, instead of waiting for `onScroll` to complete  -->
+      in case it contains `event.preventDefault()` </div>
+    <div @scroll.passive="onScroll" style="width: 100%; height: 200px; overflow: auto">
+      <div style="width: 50%; height: 4000px; background: red"></div>
+    </div>
+
+    <!-- Key Modifiers-->
+    <h2>Key Modifiers</h2>
+    <input
+      @keyup.enter="pressed('enter')"
+      @keyup.enter.ctrl="pressed('ctrl + enter')"
+      @keyup.shift.enter="pressed('shift+ enter')"
+      @keyup.alt.enter="pressed('alt+ enter')"
+      @keyup.meta.enter="pressed('meta+ enter')"
+      @keyup.tab="pressed('tab')"
+      @keyup.delete="pressed('delete')"
+      @keyup.esc="pressed('esc')"
+      @keyup.space="pressed('space')"
+      @keyup.up="pressed('up')"
+      @keyup.down="pressed('down')"
+      @keyup.left="pressed('left')"
+      @keyup.right="pressed('right')">
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#example',
+      data: {
+        counter: 1
+      },
+      methods: {
+        addOne() {
+          this.counter++;
+        },
+        say(msg) {
+          alert(msg);
+        },
+        onScroll(event) {
+          console.log('scrolling');
+        },
+        pressed(key) {
+          alert('You pressed ' + key);
+        }
+      }
+    });
+
+  </script>
+</body>
+</html>
