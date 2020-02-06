@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Conditional Rendering</h1>
+  <hr />
+
+  <!-- v-for -->
+  <h2>v-for</h2>
+  <div id="vfor-example">
+    <h3>v-for="index in 3"</h3>
+    <hr>
+    <ul>
+      <li v-for="index in 3">{{ index }}</li>
+    </ul>
+
+    <h3>v-for="(item, index) in array....or can use of, it's the same"</h3>
+    <hr>
+    <ul>
+      <li v-for="(item, index) in array">{{ index }} - {{ item }}</li>
+    </ul>
+
+    <h3>v-for="(value, key, index) in object"</h3>
+    <hr>
+    <ul>
+      <li v-for="(value, key, index) in object">{{ index }} - {{ value }} - {{ key }}</li>
+    </ul>
+
+    <h3>Example with vue component</h3>
+    <form v-on:submit.prevent="addNewTodo">
+      <label for="new-todo">Add a todo</label>
+      <input v-model="newTodoText" id="new-todo" placeholder="E.g. Feed the cat">
+      <button>Add</button>
+    </form>
+    <button @click="filterTodos">Filter (Just show > 2 id)</button>
+
+    <todo-item v-for="(todo, index) in filteredTodos"
+              :id="todo.id"
+              :title="todo.title"
+              :key="todo.id"
+              @remove="todos.splice(index, 1)"></todo-item>
+
+    <!-- Or can use with is to bind component
+      <li is="todo-item" v-for="(todo, index) in filteredTodos"
+           :id="todo.id"
+           :title="todo.title"
+           :key="todo.id"
+           @remove="todos.splice(index, 1)">
+      </li>
+    -->
+    <hr>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    Vue.component('todo-item', {
+      template: `
+        <li>
+          ({{ id }}) {{ title }}
+          <button @click="$emit('remove')">Remove</button>
+        </li>
+      `,
+      props: [ 'id', 'title' ]
+    })
+
+    const app = new Vue({
+      el: '#vfor-example',
+      data: {
+        array: ['one', 'two', 'three'],
+        object: {
+          name: 'Kyoz',
+          age: 26
+        },
+        newTodoText: '',
+        filtered: false,
+        todos: [
+          { id: 1, title: 'Do the dishes' },
+          { id: 2, title: 'Take out the trash' },
+          { id: 3, title: 'Mow the lawn' }
+        ]
+      },
+      methods: {
+        addNewTodo: function() {
+          if (this.newTodoText.trim().length === 0) {
+            alert('You must type some thing huh...');
+            return;
+          }
+
+          this.todos.push({
+            id: this.todos.length === 0 ? 0 : this.todos[this.todos.length - 1].id + 1,
+            title: this.newTodoText
+          });
+
+          this.newTodoText = '';
+        },
+        filterTodos: function() {
+          this.filtered = !this.filtered;
+        }
+      },
+      computed: {
+        filteredTodos: function() {
+          if (this.filtered) {
+            return this.todos.slice(2);
+          }
+
+          return this.todos;
+        }
+      }
+    });
+
+  </script>
+</body>
+</html>
