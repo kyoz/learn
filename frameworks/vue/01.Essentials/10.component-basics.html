@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Components Basics</h1>
+  <hr />
+
+  <div id="example">
+    <post @like="like"></post>
+    <post @like="like" title="Post One"></post>
+    <post @like="like" title="Post Two"></post>
+    <h3>Total Like: {{ totalLike }}</h3>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    Vue.component('post', {
+      data: function() {
+        return {
+          title: 'No Name Post',
+          share: 0
+        }
+      },
+      methods: {
+        sharePost() {
+          this.share++;
+        }
+      },
+      template: `
+        <div style="margin: 16px; padding: 16px; border: 1px solid #bdbdbd; border-radius: 8px">
+          <div>{{ title }}</div>
+          <button @click="$emit('like')">Like</button>
+          <button @click="sharePost">Share</button>
+          <span v-if="share > 0">Shared: {{ share }}</span>
+        </div>
+      `
+    });
+
+    const vm = new Vue({
+      el: '#example',
+      data: {
+        totalLike: 0
+      },
+      methods: {
+        like() {
+          this.totalLike++;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
