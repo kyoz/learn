@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Form Input Bindings</h1>
+  <hr />
+
+  <div id="example">
+
+    <!-- Basic Usage -->
+    <h2>1. Basic Usage</h2>
+    <h3>1.1. Text</h3>
+    <input v-model="message" placeholder="Edit me">
+    <span>Message is: {{ message }}</span>
+
+    <h3>1.2. Multiline text</h3>
+    <textarea v-model="message2" placeholder="Edit me"></textarea>
+    <div>Multiline message is:</div>
+    <pre>{{ message2 }}</pre>
+
+    <h3>1.3. Checkbox</h3>
+    <input type="checkbox" v-model="checkboxValue">
+    <span>This is checkbox value: {{ checkboxValue }}</span>
+
+    <h3>1.4. Multiple Checkbox</h3>
+    <input type="checkbox" id="one" v-model="multiCheckboxValue" value="One">
+    <label for="one">One</label>
+    <input type="checkbox" id="two" v-model="multiCheckboxValue" value="Two">
+    <label for="two">Two</label>
+    <input type="checkbox" id="three" v-model="multiCheckboxValue" value="Three">
+    <label for="three">Three</label>
+    <div>Checked values: {{ multiCheckboxValue }}</div>
+
+    <h3>1.5. Radio</h3>
+    <input type="radio" id="one" value="One" v-model="radioValue">
+    <label for="one">One</label>
+    <input type="radio" id="two" value="Two" v-model="radioValue">
+    <label for="one">Two</label>
+    <div>You picked: {{ radioValue }}</div>
+
+    <h3>1.6. Select</h3>
+    <select v-model="selectValue">
+      <option value="">Not select</option>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+    </select>
+    <div>You selected: {{ selectValue }}</div>
+
+    <h3>1.7. Multiple Select</h3>
+    <select v-model="multipleSelectValue" multiple>
+      <option value="">Not select</option>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+    </select>
+    <div>You selected: {{ multipleSelectValue }}</div>
+
+    <hr>
+    <!-- Value Bindings -->
+    <h2>2. Value Bindings</h2>
+    <a href="https://vuejs.org/v2/guide/forms.html#Value-Bindings">Examples</a>
+
+    <hr>
+    <!-- Modifiers -->
+    <h2>3. Modifiers</h2>
+    <h3>3.1. .lazy</h3>
+    <input v-model.lazy="lazyInput">
+    <span>This in put use lazy modifier so it just update binding variable when change event fire (not input event)</span>
+    <div>Value: {{ lazyInput }}</div>
+
+    <h3>3.2. .number</h3>
+    <input v-model.number="numberInput" type="number">
+    <span>This input is for number. Data binding auto parse to number instead of string when using .number modifier</span>
+    <div>Type of ({{ numberInput }}) is: {{ typeof numberInput}}</div>
+
+    <h3>3.3. .trim</h3>
+    <input v-model.trim="trimInput">
+    <span>This input using .trim modifier, so it auto trim string for you</span>
+    <div>This is value: ({{ trimInput }}) <-- See, it have trimmed</div>
+
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#example',
+      data: {
+        // Basic
+        message: '',
+        message2: '',
+        checkboxValue: true,
+        multiCheckboxValue: ['two'],
+        radioValue: undefined,
+        selectValue: 'B',
+        multipleSelectValue: ['A', 'C'],
+
+        // Value Bindings
+        lazyInput: '',
+        numberInput: undefined,
+        trimInput: ''
+      }
+    });
+  </script>
+</body>
+</html>
