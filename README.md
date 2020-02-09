@@ -67,6 +67,7 @@
     - [x] next.js
     - [ ] after.js
 - [ ] vue
+    - [x] vue
     - [ ] vuex
     - [ ] nuxt.js
 - [ ] [svelte](https://svelte.dev/)
