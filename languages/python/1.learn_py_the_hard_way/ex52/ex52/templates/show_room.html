@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1 style="height: 64px; font-size: 2em; background: #000; color: #fff">
+  {{ room.name }}
+</h1>
+
+<pre>
+  {{ room.description }}
+</pre>
+
+{% if room.name in ["death", "The End"] %}
+  <p><a href="/">Play Again?</a></p>
+{% else %}
+  <p>
+    <form action="/game_view" medhot="POST">
+      - <input name="action">
+      <input type="submit" />
+    </form>
+  </p>
+{% endif %}
+
+{% endblock %}
