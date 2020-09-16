@@ -65,6 +65,7 @@
     - [ ] universal
 - [x] react
     - [x] next.js
+    - [ ] [redux](https://redux.js.org/introduction/installation)
     - [ ] after.js
 - [ ] vue
     - [x] vue
